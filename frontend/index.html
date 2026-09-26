@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaker's Office — Question File · National Assembly of Pakistan</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+<div class="sample-watermark">Sample data · demo prototype</div>
+
+<div id="loginScreen" class="login-wrapper">
+  <div class="login-left">
+    <div class="login-brand-row">
+      <img src="/crest.svg" class="crest-img" alt="National Assembly of Pakistan">
+      <div class="brand-stack">
+        <h1>NATIONAL ASSEMBLY OF PAKISTAN</h1>
+        <p>Secretariat E-Office Suite</p>
+      </div>
+    </div>
+    <div class="login-hero">
+      <h2>Legislative E-Governance &amp; File Routing</h2>
+      <p>Complete workflow visibility for every secretariat file across all administrative levels.</p>
+    </div>
+    <div class="login-foot">© 2026 National Assembly Secretariat · Islamic Republic of Pakistan</div>
+  </div>
+  <div class="login-right">
+    <div class="login-card">
+      <div style="text-align:center;margin-bottom:20px;">
+        <img src="/crest.svg" style="width:64px;height:64px;object-fit:contain;" alt="National Assembly of Pakistan">
+      </div>
+      <h3 style="text-align:center;">Sign in</h3>
+      <p class="subtitle" style="text-align:center;">Select a role. Officer password questions123 · Speaker password speaker123</p>
+      <div class="role-label">Role in this cut</div>
+      <div class="role-chips">
+        <button class="role-chip active" data-role="officer" type="button">
+          <div class="avatar-mini">SM</div>
+          <div class="who"><b>Section Officer</b><span>Questions Branch</span></div>
+        </button>
+        <button class="role-chip" data-role="speaker" type="button">
+          <div class="avatar-mini" style="background:linear-gradient(135deg,#fef3c7,#fbbf24);color:#422006;">AS</div>
+          <div class="who"><b>Hon. Speaker</b><span>Ayaz Sadiq</span></div>
+        </button>
+      </div>
+      <div class="role-label" style="margin-top:16px;">Also on this platform</div>
+      <div class="role-chips" style="grid-template-columns:1fr 1fr 1fr;">
+        <button class="role-chip" data-role="js" type="button"><div class="avatar-mini">TM</div><div class="who"><b>Joint Secretary</b><span>Tariq Mehmood</span></div></button>
+        <button class="role-chip" data-role="special" type="button"><div class="avatar-mini">FJ</div><div class="who"><b>Special Secretary</b><span>Farah Jameel</span></div></button>
+        <button class="role-chip" data-role="secgen" type="button"><div class="avatar-mini">SG</div><div class="who"><b>Secretary</b><span>Saeed Ahmad Maitla</span></div></button>
+      </div>
+      <div class="login-input-wrap">
+        <label>Official Secretariat Email</label>
+        <input id="loginEmail" type="email" value="so.questions@na.gov.pk">
+      </div>
+      <div class="login-input-wrap">
+        <label>Password</label>
+        <input id="loginPassword" type="password" value="questions123">
+      </div>
+      <button class="login-btn" id="loginBtn" type="button">
+        <span>Enter the Secretariat</span>
+        <span style="font-size:16px;">→</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="app" class="app">
+  <header class="topbar">
+    <div class="topbar-brand">
+      <img src="/crest.svg" class="topbar-crest-img" alt="NA">
+      <div class="stack">
+        <h4>National Assembly Secretariat</h4>
+        <small>Speaker's Office · Questions Branch</small>
+      </div>
+    </div>
+    <div class="topbar-crumbs" id="crumbs">
+      <span id="crumbRoot">Questions Branch</span>
+      <span class="divider">›</span>
+      <span class="current" id="crumbCurrent">Inbox</span>
+    </div>
+    <div class="topbar-actions">
+      <div class="role-pill" id="rolePill">
+        <div class="who-mini">
+          <b id="pillName">Saima Malik</b>
+          <span id="pillRole">Section Officer · Questions Branch</span>
+        </div>
+        <div class="avatar-mini" id="pillAvatar">SM</div>
+      </div>
+      <button class="topbar-signout" id="signOut" type="button">Sign out</button>
+    </div>
+    <div class="role-menu" id="roleMenu">
+      <div class="label">Demo · view as</div>
+      <button data-role="officer" type="button">
+        <div class="avatar-mini">SM</div>
+        <div class="who"><b>Saima Malik</b><span>Section Officer · Questions Branch</span></div>
+      </button>
+      <button data-role="js" type="button"><div class="avatar-mini">TM</div><div class="who"><b>Tariq Mehmood</b><span>Joint Secretary</span></div></button>
+      <button data-role="special" type="button"><div class="avatar-mini">FJ</div><div class="who"><b>Farah Jameel</b><span>Special Secretary</span></div></button>
+      <button data-role="secgen" type="button"><div class="avatar-mini">SG</div><div class="who"><b>Saeed Ahmad Maitla</b><span>Secretary</span></div></button>
+      <button data-role="speaker" type="button">
+        <div class="avatar-mini" style="background:linear-gradient(135deg,#fef3c7,#fbbf24);color:#422006;">AS</div>
+        <div class="who"><b>Sardar Ayaz Sadiq</b><span>Hon. Speaker of the National Assembly</span></div>
+      </button>
+    </div>
+  </header>
+  <div class="body-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main" id="mainStage"></main>
+  </div>
+</div>
+<div class="toast-holder" id="toastHolder"></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

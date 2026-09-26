@@ -1,0 +1,33 @@
+{
+  "rule": "78",
+  "title": "Admissibility of questions",
+  "source": "Rules of Procedure and Conduct of Business in the National Assembly, 2007",
+  "clauses": [
+    { "id": "a", "text": "It shall not bring in any name or statement not strictly necessary to make the question intelligible." },
+    { "id": "b", "text": "If it contains a statement, the member shall make himself responsible for the accuracy of the statement." },
+    { "id": "c", "text": "It shall not contain arguments, inferences, ironical expressions, imputations, epithets or defamatory statements." },
+    { "id": "d", "text": "It shall not ask for an expression of opinion or the solution of an abstract legal question or a hypothetical proposition." },
+    { "id": "e", "text": "It shall not refer to the character or conduct of any person except in his official or public capacity." },
+    { "id": "f", "text": "It shall not ordinarily exceed one hundred and fifty words." },
+    { "id": "g", "text": "It shall not relate to a matter which is not primarily the concern of the Government." },
+    { "id": "h", "text": "It shall not make or imply a charge of a personal character." },
+    { "id": "i", "text": "It shall not raise a question of policy too large to be dealt with within the limits of an answer to a question." },
+    { "id": "j", "text": "It shall not repeat in substance a question already answered or disallowed during the last two sessions." },
+    { "id": "k", "text": "It shall not be trivial, vexatious, vague or meaningless." },
+    { "id": "l", "text": "It shall not ask for information contained in documents accessible to the public or in ordinary works of reference." },
+    { "id": "m", "text": "It shall not ask for information on matters under the control of bodies not primarily responsible to the Government." },
+    { "id": "n", "text": "It shall not contain references to newspapers by name or ask whether statements in the press are accurate." },
+    { "id": "o", "text": "It shall not ask for information regarding Cabinet discussions or advice given to the President." },
+    { "id": "p", "text": "It shall not ask for information on matters under consideration before a Committee of the Assembly, unless the proceedings have been placed before the Assembly." },
+    { "id": "q-i", "text": "It shall not contain any reflection on the conduct of the President or a Judge of the Supreme Court or of a High Court." },
+    { "id": "q-ii", "text": "It shall not ask for information on matters already discussed by an adjournment motion during the same session." },
+    { "id": "q-iii", "text": "It shall not contain any criticism of a decision of the Assembly or the Senate." },
+    { "id": "q-iv", "text": "It shall not seek information about matters which are secret or sensitive." },
+    { "id": "q-v", "text": "It shall not criticise or refer discourteously to a foreign country." },
+    { "id": "r", "text": "It shall not reflect on a decision of a court or prejudice a matter which is sub judice." },
+    { "id": "s", "text": "It shall not amount in substance to a suggestion for a particular course of action." },
+    { "id": "t", "text": "It shall not ordinarily ask for information on matters of past history." },
+    { "id": "u", "text": "It shall not ordinarily ask about matters pending before a tribunal, commission or court of inquiry." },
+    { "id": "v", "text": "It shall not relate to correspondence between the Federal Government and a Provincial Government, except as to a matter of fact." }
+  ]
+}

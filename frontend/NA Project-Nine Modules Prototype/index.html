@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Speaker's Office Digital Platform — National Assembly of Pakistan</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#b4f1bc","secondary":"#775928","surface-bright":"#f9f9ff","on-tertiary-container":"#80ab89","on-background":"#141b2b","on-secondary-container":"#7a5c2b","tertiary-fixed-dim":"#a5d1ad","background":"#f9f9ff","on-primary-fixed-variant":"#17512a","surface-container":"#e9edff","surface":"#f9f9ff","outline-variant":"#c0c9be","on-secondary":"#ffffff","on-error-container":"#93000a","tertiary-fixed":"#c0eec8","surface-container-high":"#e1e8fd","tertiary-container":"#163f25","primary-container":"#01411c","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed":"#ffdeae","inverse-surface":"#293040","inverse-primary":"#99d5a2","on-tertiary":"#ffffff","secondary-fixed-dim":"#e8c086","tertiary":"#002912","on-secondary-fixed-variant":"#5d4213","on-surface-variant":"#414941","surface-container-low":"#f1f3ff","on-primary":"#ffffff","on-tertiary-fixed":"#00210d","on-primary-container":"#74ae7e","on-secondary-fixed":"#281800","surface-tint":"#326a40","error-container":"#ffdad6","surface-dim":"#d3daef","on-tertiary-fixed-variant":"#274f33","primary-fixed-dim":"#99d5a2","primary":"#00290f","surface-container-highest":"#dce2f7","surface-variant":"#dce2f7","secondary-container":"#ffd79b","error":"#ba1a1a","inverse-on-surface":"#edf0ff","on-primary-fixed":"#00210b","on-surface":"#141b2b","outline":"#717970"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1.25rem","space-xl":"1.75rem","space-sm":"0.5rem","space-md":"0.75rem","margin":"2rem","space-lg":"1.25rem","space-xs":"0.25rem"},"fontFamily":{"label-sm":["Inter"],"label-md":["Inter"],"code-md":["JetBrains Mono"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"headline-xl":["Inter"],"body-sm":["Inter"],"label-lg":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"]},"fontSize":{"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"500"}],"code-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0","fontWeight":"500"}],"headline-lg":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["1.125rem",{"lineHeight":"1.625rem","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0","fontWeight":"400"}],"headline-xl":["1.75rem",{"lineHeight":"2.25rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.005em","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["1rem",{"lineHeight":"1.625rem","letterSpacing":"0","fontWeight":"400"}],"headline-sm":["1rem",{"lineHeight":"1.5rem","letterSpacing":"0","fontWeight":"600"}]}}}};
+</script>
+<style>
+@layer base {
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+  body { overscroll-behavior: none; }
+}
+::-webkit-scrollbar { display: none; }
+
+/* Loading transition for iframe */
+#module-frame {
+  transition: opacity 0.2s ease;
+}
+#module-frame.loading {
+  opacity: 0.4;
+}
+</style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased h-screen flex flex-col">
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between select-none shadow-[1px_0_0_0_#163f25]">
+  <div class="flex flex-col">
+    <!-- Logo -->
+    <div class="px-space-md py-space-md bg-tertiary flex items-center gap-space-sm">
+      <img alt="National Assembly Crest" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYCe4HNrOxtFQhhi2tW4wfBBP7Vc6B4v6A9zza8rfC0UEt3lgZ66EtyjMxroc_JuTjJlJOyoYCHDKl7wMJQ0d-wYyyFRVOS1xuy4DdI78u2CKICbeS5g9_AdJiNzqc1MptVTrTjOG3RLLRKICKvJ27Nkf1y4Z-ejuCyN_W9Na3hrPbsppO_hKV_G_LYyuPMevrL2qcOfVDkgNHvmGlCs5s563hUOnFDCYXlIDLOli--Ps7SiuUroR"/>
+      <div class="flex flex-col min-w-0">
+        <span class="font-label-sm text-label-sm text-on-primary uppercase tracking-wider truncate">National Assembly</span>
+        <span class="font-label-sm text-label-sm text-secondary-fixed truncate">Speaker's Secretariat</span>
+        <span class="font-label-sm text-label-sm text-primary-fixed-dim/80 text-[10px] leading-tight truncate">ایوانِ زیریں پاکستان</span>
+      </div>
+    </div>
+
+    <!-- Module Label -->
+    <div class="px-space-md py-space-xs">
+      <span class="font-label-sm text-label-sm text-primary-fixed-dim/70 uppercase tracking-widest">Official Modules</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex flex-col gap-1 px-space-xs overflow-y-auto max-h-[calc(100vh-210px)]" id="main-nav">
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg transition-colors cursor-pointer bg-tertiary-container text-on-primary font-label-lg" data-module="overview-dashboard" data-file="dashboard.html">
+        <span class="material-symbols-outlined text-[18px]">dashboard</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">Home / Overview</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ڈیش بورڈ</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="files-documents" data-file="files-documents.html">
+        <span class="material-symbols-outlined text-[18px]">folder_open</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">1. Files & Documents</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">فائلز و دستاویزات</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="directions-decisions" data-file="directions-decisions.html">
+        <span class="material-symbols-outlined text-[18px]">gavel</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">2. Directions & Decisions</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">احکامات و تعمیل</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="official-meetings" data-file="official-meetings.html">
+        <span class="material-symbols-outlined text-[18px]">groups</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">3. Official Meetings</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">سرکاری ملاقاتیں</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="daily-schedule" data-file="daily-schedule.html">
+        <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">4. Daily Schedule</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">روزنامچہ و نظام الاوقات</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="speeches-engagements" data-file="speeches-engagements.html">
+        <span class="material-symbols-outlined text-[18px]">record_voice_over</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">5. Speeches & Visits</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">تقاریر و دورہ جات</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="telephone-log" data-file="telephone-log.html">
+        <span class="material-symbols-outlined text-[18px]">phone_in_talk</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">6. Telephone Log</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ٹیلیفون پیغامات</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="remote-approvals" data-file="remote-approvals.html">
+        <span class="material-symbols-outlined text-[18px]">verified</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">7. Remote Approvals</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ریموٹ منظوری</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="media-press" data-file="media-press.html">
+        <span class="material-symbols-outlined text-[18px]">newspaper</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">8. Media & Press</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">میڈیا و نشریات</span>
+        </div>
+      </a>
+      <a class="nav-link flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors cursor-pointer" data-module="greeting-cards" data-file="greeting-cards.html">
+        <span class="material-symbols-outlined text-[18px]">mark_email_read</span>
+        <div class="flex flex-col leading-tight min-w-0">
+          <span class="font-label-md text-label-md truncate">9. Greeting Cards</span>
+          <span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">تہنیتی پیغامات</span>
+        </div>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Security Footer -->
+  <div class="p-space-sm bg-tertiary/60 mx-space-xs mb-space-sm rounded-lg flex flex-col gap-1">
+    <div class="flex items-center justify-between">
+      <span class="font-code-md text-[10px] text-secondary-fixed uppercase tracking-wider font-semibold">SECURITY: LEVEL 1</span>
+      <span class="font-code-md text-[10px] text-primary-fixed-dim/70">SECRET</span>
+    </div>
+    <div class="flex items-center justify-between text-primary-fixed-dim/60 text-[10px] font-code-md">
+      <span>GovCloud PK</span>
+      <span>v3.4.1 NA</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ===== MAIN CONTENT AREA ===== -->
+<div class="pl-64 h-screen flex flex-col">
+
+  <!-- Top Header Bar -->
+  <header class="h-16 bg-surface-container-lowest z-40 flex items-center justify-between px-space-lg shadow-[0_2px_0_0_#01411c] shrink-0">
+    <div class="flex items-center gap-space-sm">
+      <img alt="National Assembly Crest" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYCe4HNrOxtFQhhi2tW4wfBBP7Vc6B4v6A9zza8rfC0UEt3lgZ66EtyjMxroc_JuTjJlJOyoYCHDKl7wMJQ0d-wYyyFRVOS1xuy4DdI78u2CKICbeS5g9_AdJiNzqc1MptVTrTjOG3RLLRKICKvJ27Nkf1y4Z-ejuCyN_W9Na3hrPbsppO_hKV_G_LYyuPMevrL2qcOfVDkgNHvmGlCs5s563hUOnFDCYXlIDLOli--Ps7SiuUroR"/>
+      <div class="flex flex-col leading-tight">
+        <span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-tight">Speaker AI Portal</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Chamber Secretariat | Legislative Intelligence</span>
+      </div>
+    </div>
+    <div class="flex-1 max-w-xl mx-space-lg">
+      <div class="relative flex items-center">
+        <span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span>
+        <input class="w-full pl-9 pr-14 py-1.5 bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline rounded-lg outline-none focus:ring-1 focus:ring-primary-container" placeholder="Search motions, files, rulings, gazettes, verbatim transcripts (Ctrl + K)..." type="text"/>
+        <kbd class="absolute right-2 font-code-md text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-secondary font-semibold">Ctrl+K</kbd>
+      </div>
+    </div>
+    <div class="flex items-center gap-space-md">
+      <button class="flex items-center gap-1 px-space-xs py-1 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" type="button">
+        <span class="material-symbols-outlined text-[16px]">translate</span>
+        <span>EN | اردو</span>
+      </button>
+      <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded-lg">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span>
+        <span class="font-label-sm text-label-sm text-on-surface font-semibold">42nd Session</span>
+        <span class="font-label-sm text-label-sm text-outline-variant">|</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant">Day 14</span>
+      </div>
+      <div class="relative flex items-center justify-center p-1 rounded-lg text-on-surface-variant hover:text-on-surface cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">notifications</span>
+        <span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full ring-2 ring-surface-container-lowest"></span>
+      </div>
+      <div class="flex items-center gap-space-sm pl-space-xs">
+        <div class="flex flex-col text-right leading-tight">
+          <span class="font-label-md text-label-md text-on-surface font-semibold">Hon. Sardar Ayaz Sadiq</span>
+          <span class="font-label-sm text-label-sm text-outline">Speaker, National Assembly</span>
+        </div>
+        <img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNdnQOJDfZgG2zftHr7X5fBQZjJiwmEzpuFFYajHhnVcwa8s1I2EPcX2ArwjOF7aL1yGsu3ET-EAiVSd_vFLZyuT0qrzwEBtd6ARpoSe1IzAzDDxBCq_2ljZXrL01gK512-v9_0c4Tz6i0GVcQJp_2fqR52JITvc906TVl0J9wU_QAm0gR-PbkI7T7M759ZtZObDwtgkbVDtP4A8J3lDFqev-xAkVviTqa0ifVOJUxEg1upgFU4vuc"/>
+      </div>
+    </div>
+  </header>
+
+  <!-- Module Content (iframe) -->
+  <div class="flex-1 relative">
+    <iframe id="module-frame" src="dashboard.html" class="w-full h-full border-0" style="position:absolute;inset:0;"></iframe>
+  </div>
+
+</div>
+
+<!-- AI FAB Button -->
+<div class="fixed bottom-6 right-6 z-[60]">
+  <button class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_4px_12px_rgba(1,65,28,0.35)] ring-2 ring-secondary-fixed hover:bg-tertiary-container transition-all" type="button" onclick="toggleAI()">
+    <span class="material-symbols-outlined text-[24px]">auto_awesome</span>
+  </button>
+</div>
+
+<script>
+  // ===== NAVIGATION LOGIC =====
+  const navLinks = document.querySelectorAll('.nav-link');
+  const moduleFrame = document.getElementById('module-frame');
+  const activeClasses = ['bg-tertiary-container', 'text-on-primary', 'font-label-lg'];
+  const inactiveClasses = ['text-primary-fixed-dim', 'hover:bg-tertiary-container', 'hover:text-on-primary'];
+
+  function setActiveNav(clickedLink) {
+    // Remove active state from all
+    navLinks.forEach(link => {
+      activeClasses.forEach(c => link.classList.remove(c));
+      inactiveClasses.forEach(c => link.classList.add(c));
+    });
+
+    // Set active state on clicked
+    inactiveClasses.forEach(c => clickedLink.classList.remove(c));
+    activeClasses.forEach(c => clickedLink.classList.add(c));
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const file = this.getAttribute('data-file');
+      
+      // Visual feedback
+      setActiveNav(this);
+      
+      // Load module with transition
+      moduleFrame.classList.add('loading');
+      
+      // Use a small delay so the CSS transition is visible
+      setTimeout(() => {
+        moduleFrame.src = file;
+      }, 100);
+    });
+  });
+
+  // Remove loading class when iframe finishes loading
+  moduleFrame.addEventListener('load', function() {
+    this.classList.remove('loading');
+    
+    // Hide the sidebar and header inside the iframe since the shell provides them
+    try {
+      const iframeDoc = this.contentDocument || this.contentWindow.document;
+      
+      // Hide the iframe's own sidebar
+      const iframeSidebar = iframeDoc.querySelector('aside');
+      if (iframeSidebar) {
+        iframeSidebar.style.display = 'none';
+      }
+      
+      // Hide the iframe's own top header
+      const iframeHeader = iframeDoc.querySelector('div.pl-64 > header');
+      if (iframeHeader) {
+        iframeHeader.style.display = 'none';
+      }
+      
+      // Remove the left padding since we hide the sidebar
+      const mainWrapper = iframeDoc.querySelector('div.pl-64');
+      if (mainWrapper) {
+        mainWrapper.style.paddingLeft = '0';
+      }
+      
+      // Remove top padding from main since we hide the header
+      const mainContent = iframeDoc.querySelector('main');
+      if (mainContent) {
+        mainContent.style.paddingTop = '0.5rem';
+      }
+      
+      // Also hide the AI FAB inside the iframe (we have our own)
+      const iframeFab = iframeDoc.querySelector('.fixed.bottom-6.right-6');
+      if (iframeFab) {
+        iframeFab.style.display = 'none';
+      }
+      
+    } catch(err) {
+      // Cross-origin restrictions may apply, that's OK
+      console.log('Could not modify iframe content:', err.message);
+    }
+  });
+
+  // AI panel toggle
+  function toggleAI() {
+    try {
+      const iframeDoc = moduleFrame.contentDocument || moduleFrame.contentWindow.document;
+      const drawer = iframeDoc.getElementById('ai-drawer');
+      if (drawer) {
+        drawer.classList.toggle('hidden');
+      }
+    } catch(err) {
+      console.log('AI panel not available in this module');
+    }
+  }
+
+  // Keyboard shortcut: Ctrl+K focuses search
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      document.querySelector('header input[type="text"]').focus();
+    }
+  });
+</script>
+</body>
+</html>

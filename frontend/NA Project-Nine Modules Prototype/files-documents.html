@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#b4f1bc","secondary":"#775928","surface-bright":"#f9f9ff","on-tertiary-container":"#80ab89","on-background":"#141b2b","on-secondary-container":"#7a5c2b","tertiary-fixed-dim":"#a5d1ad","background":"#f9f9ff","on-primary-fixed-variant":"#17512a","surface-container":"#e9edff","surface":"#f9f9ff","outline-variant":"#c0c9be","on-secondary":"#ffffff","on-error-container":"#93000a","tertiary-fixed":"#c0eec8","surface-container-high":"#e1e8fd","tertiary-container":"#163f25","primary-container":"#01411c","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed":"#ffdeae","inverse-surface":"#293040","inverse-primary":"#99d5a2","on-tertiary":"#ffffff","secondary-fixed-dim":"#e8c086","tertiary":"#002912","on-secondary-fixed-variant":"#5d4213","on-surface-variant":"#414941","surface-container-low":"#f1f3ff","on-primary":"#ffffff","on-tertiary-fixed":"#00210d","on-primary-container":"#74ae7e","on-secondary-fixed":"#281800","surface-tint":"#326a40","error-container":"#ffdad6","surface-dim":"#d3daef","on-tertiary-fixed-variant":"#274f33","primary-fixed-dim":"#99d5a2","primary":"#00290f","surface-container-highest":"#dce2f7","surface-variant":"#dce2f7","secondary-container":"#ffd79b","error":"#ba1a1a","inverse-on-surface":"#edf0ff","on-primary-fixed":"#00210b","on-surface":"#141b2b","outline":"#717970"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1.25rem","space-xl":"1.75rem","space-sm":"0.5rem","space-md":"0.75rem","margin":"2rem","space-lg":"1.25rem","space-xs":"0.25rem"},"fontFamily":{"label-sm":["Inter"],"label-md":["Inter"],"code-md":["JetBrains Mono"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"headline-xl":["Inter"],"body-sm":["Inter"],"label-lg":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"]},"fontSize":{"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"500"}],"code-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0","fontWeight":"500"}],"headline-lg":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["1.125rem",{"lineHeight":"1.625rem","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0","fontWeight":"400"}],"headline-xl":["1.75rem",{"lineHeight":"2.25rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.005em","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["1rem",{"lineHeight":"1.625rem","letterSpacing":"0","fontWeight":"400"}],"headline-sm":["1rem",{"lineHeight":"1.5rem","letterSpacing":"0","fontWeight":"600"}]}}}};</script><style id="iframe-shell-compat">
+/* When loaded inside the unified shell (iframe), hide duplicate sidebar/header */
+@media all {
+  html.in-iframe aside.fixed { display: none !important; }
+  html.in-iframe div.pl-64 > header.fixed { display: none !important; }
+  html.in-iframe div.pl-64 { padding-left: 0 !important; }
+  html.in-iframe div.pl-64 > main { padding-top: 0.5rem !important; }
+  html.in-iframe .fixed.bottom-6.right-6 { display: none !important; }
+}
+</style>
+<script>
+// Detect if we are inside an iframe and apply the class
+if (window.self !== window.top) {
+  document.documentElement.classList.add('in-iframe');
+}
+</script>
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between select-none shadow-[1px_0_0_0_#163f25]"><div class="flex flex-col"><div class="px-space-md py-space-md bg-tertiary flex items-center gap-space-sm"><img alt="National Assembly Crest" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYCe4HNrOxtFQhhi2tW4wfBBP7Vc6B4v6A9zza8rfC0UEt3lgZ66EtyjMxroc_JuTjJlJOyoYCHDKl7wMJQ0d-wYyyFRVOS1xuy4DdI78u2CKICbeS5g9_AdJiNzqc1MptVTrTjOG3RLLRKICKvJ27Nkf1y4Z-ejuCyN_W9Na3hrPbsppO_hKV_G_LYyuPMevrL2qcOfVDkgNHvmGlCs5s563hUOnFDCYXlIDLOli--Ps7SiuUroR"/><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-primary uppercase tracking-wider truncate">National Assembly</span><span class="font-label-sm text-label-sm text-secondary-fixed truncate">Speaker's Secretariat</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/80 text-[10px] leading-tight truncate">ایوانِ زیریں پاکستان</span></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-primary-fixed-dim/70 uppercase tracking-widest">Official Modules</span></div><nav class="flex flex-col gap-1 px-space-xs overflow-y-auto max-h-[calc(100vh-210px)]" data-active-classes="bg-tertiary-container text-on-primary font-label-lg rounded-lg"><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="overview-dashboard" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">Home / Overview</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ڈیش بورڈ</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="files-documents" href="#"><span class="material-symbols-outlined text-[18px]">folder_open</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">1. Files & Documents</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">فائلز و دستاویزات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="directions-decisions" href="#"><span class="material-symbols-outlined text-[18px]">gavel</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">2. Directions & Decisions</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">احکامات و تعمیل</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="official-meetings" href="#"><span class="material-symbols-outlined text-[18px]">groups</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">3. Official Meetings</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">سرکاری ملاقاتیں</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="daily-schedule" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">4. Daily Schedule</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">روزنامچہ و نظام الاوقات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="speeches-engagements" href="#"><span class="material-symbols-outlined text-[18px]">record_voice_over</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">5. Speeches & Visits</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">تقاریر و دورہ جات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="telephone-log" href="#"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">6. Telephone Log</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ٹیلیفون پیغامات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="remote-approvals" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">7. Remote Approvals</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ریموٹ منظوری</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="media-press" href="#"><span class="material-symbols-outlined text-[18px]">newspaper</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">8. Media & Press</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">میڈیا و نشریات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="greeting-cards" href="#"><span class="material-symbols-outlined text-[18px]">mark_email_read</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">9. Greeting Cards</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">تہنیتی پیغامات</span></div></a></nav></div><div class="p-space-sm bg-tertiary/60 mx-space-xs mb-space-sm rounded-lg flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-code-md text-[10px] text-secondary-fixed uppercase tracking-wider font-semibold">SECURITY: LEVEL 1</span><span class="font-code-md text-[10px] text-primary-fixed-dim/70">SECRET</span></div><div class="flex items-center justify-between text-primary-fixed-dim/60 text-[10px] font-code-md"><span>GovCloud PK</span><span>v3.4.1 NA</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest z-40 flex items-center justify-between px-space-lg shadow-[0_2px_0_0_#01411c]"><div class="flex items-center gap-space-sm"><img alt="National Assembly Crest" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYCe4HNrOxtFQhhi2tW4wfBBP7Vc6B4v6A9zza8rfC0UEt3lgZ66EtyjMxroc_JuTjJlJOyoYCHDKl7wMJQ0d-wYyyFRVOS1xuy4DdI78u2CKICbeS5g9_AdJiNzqc1MptVTrTjOG3RLLRKICKvJ27Nkf1y4Z-ejuCyN_W9Na3hrPbsppO_hKV_G_LYyuPMevrL2qcOfVDkgNHvmGlCs5s563hUOnFDCYXlIDLOli--Ps7SiuUroR"/><div class="flex flex-col leading-tight"><span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-tight">Speaker AI Portal</span><span class="font-label-sm text-label-sm text-on-surface-variant">Chamber Secretariat | Legislative Intelligence</span></div></div><div class="flex-1 max-w-xl mx-space-lg"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-14 py-1.5 bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline rounded-lg outline-none focus:ring-1 focus:ring-primary-container" placeholder="Search motions, files, rulings, gazettes, verbatim transcripts (Ctrl + K)..." type="text"/><kbd class="absolute right-2 font-code-md text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-secondary font-semibold">Ctrl+K</kbd></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-1 px-space-xs py-1 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">translate</span><span>EN | اردو</span></button><div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded-lg"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface font-semibold">42nd Session</span><span class="font-label-sm text-label-sm text-outline-variant">|</span><span class="font-label-sm text-label-sm text-on-surface-variant">Day 14</span></div><div class="relative flex items-center justify-center p-1 rounded-lg text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right leading-tight"><span class="font-label-md text-label-md text-on-surface font-semibold">Hon. Sardar Ayaz Sadiq</span><span class="font-label-sm text-label-sm text-outline">Speaker, National Assembly</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNdnQOJDfZgG2zftHr7X5fBQZjJiwmEzpuFFYajHhnVcwa8s1I2EPcX2ArwjOF7aL1yGsu3ET-EAiVSd_vFLZyuT0qrzwEBtd6ARpoSe1IzAzDDxBCq_2ljZXrL01gK512-v9_0c4Tz6i0GVcQJp_2fqR52JITvc906TVl0J9wU_QAm0gR-PbkI7T7M759ZtZObDwtgkbVDtP4A8J3lDFqev-xAkVviTqa0ifVOJUxEg1upgFU4vuc"/></div></div></header><main class="w-full pt-16 bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Module Strategic Header -->
+<section class="flex flex-col md:flex-row md:items-center justify-between pb-space-lg gap-space-md">
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-code-md text-label-sm tracking-wider uppercase">Registry & Records Wing</span>
+<span class="font-code-md text-label-sm text-secondary font-semibold">REF: NA/LEG-DOC/2024-Q4</span>
+</div>
+<div class="flex items-baseline gap-space-sm flex-wrap">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Files, Documents & Papers Management</h1>
+<span class="font-headline-md text-headline-md text-outline font-normal">دستاویزات و ریکارڈ</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-3xl">
+        Official legislative dockets, executive summaries for the Hon. Speaker, constitutional references, and inter-departmental memoranda.
+      </p>
+</div>
+<!-- Top Action Controls -->
+<div class="flex items-center gap-space-xs shrink-0 flex-wrap">
+<div class="relative">
+<select class="h-9 pl-3 pr-8 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-lg shadow-sm focus:outline-none focus:bg-surface-container-lowest appearance-none cursor-pointer">
+<option value="all">All Wings (General Secretariat)</option>
+<option selected="" value="leg">Legislation Wing (قانون سازی)</option>
+<option value="admin">Administration Wing (انتظامیہ)</option>
+<option value="pac">Public Accounts / PAC (حسابات)</option>
+<option value="protocol">Protocol & Diplomatic (پروٹوکول)</option>
+<option value="library">Library & Research (تحقیق)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-outline absolute right-2.5 top-2 pointer-events-none">expand_more</span>
+</div>
+<button class="h-9 px-3.5 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg shadow-sm flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">stylus_note</span>
+<span>Batch Signatures</span>
+<span class="ml-1 px-1.5 py-0.2 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-code-md rounded">3</span>
+</button>
+<button class="h-9 px-4 bg-primary-container hover:bg-tertiary text-on-primary font-label-md text-label-md rounded-lg shadow-sm flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">add_circle</span>
+<span>Initiate New Official Docket</span>
+</button>
+</div>
+</section>
+<!-- Three-Panel Split Legislative Workflow Grid -->
+<div class="grid grid-cols-12 gap-space-md w-full items-start">
+<!-- LEFT PANEL: Matters Awaiting Action (28% -> col-span-12 xl:col-span-3) -->
+<section class="col-span-12 xl:col-span-3 flex flex-col bg-surface-container-lowest rounded-xl shadow-sm p-space-md">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary-container">inbox</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Matters Awaiting Action</h2>
+</div>
+<span class="font-code-md text-label-sm text-outline">04 Active</span>
+</div>
+<!-- Quick Search inside Docket Inbox -->
+<div class="relative w-full mb-space-sm">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[16px] text-outline">filter_list</span>
+<input class="w-full h-8 pl-8 pr-3 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:bg-surface-container" placeholder="Filter by title, reference, wing..." type="text"/>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-space-xs mb-space-sm">
+<button class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-[11px] whitespace-nowrap">All (14)</button>
+<button class="px-2 py-0.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-[11px] whitespace-nowrap">Urgent (2)</button>
+<button class="px-2 py-0.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-[11px] whitespace-nowrap">Under Review</button>
+<button class="px-2 py-0.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-[11px] whitespace-nowrap">Dispatched</button>
+</div>
+<!-- Docket List -->
+<div class="flex flex-col gap-2">
+<!-- Item 1: Active Focus Item -->
+<article class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer relative shadow-sm">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary-container rounded-l-lg"></div>
+<div class="flex items-center justify-between gap-1 mb-1 pl-1">
+<span class="font-code-md text-[11px] text-primary-container font-semibold uppercase">NA-24-LEG-091</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse" title="In Progress"></span>
+<span class="font-code-md text-[10px] text-on-surface-variant">2h ago</span>
+</div>
+</div>
+<h3 class="font-label-lg text-label-md text-on-surface font-semibold leading-snug mb-1.5 pl-1">
+            Constitutional Amendment Bill 2024 (Art. 175A Review)
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-2 mb-2 pl-1">
+            Submission regarding reconstitution of the Judicial Commission for appointment of superior judiciary judges.
+          </p>
+<div class="flex items-center justify-between pl-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-code-md text-[10px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+              Constitutional / Urgent
+            </span>
+<span class="font-label-sm text-[10px] text-outline truncate max-w-[110px]" title="Ministry of Law & Justice">Min. of Law</span>
+</div>
+</article>
+<!-- Item 2 -->
+<article class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer shadow-sm">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-code-md text-[11px] text-outline font-semibold uppercase">NA-24-PAC-044</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline" title="Pending Action"></span>
+<span class="font-code-md text-[10px] text-outline">Yesterday</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold leading-snug mb-1">
+            Special Audit: CDA Land Lease Renewals (F-9 Sector)
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-1 mb-2">
+            Observation memo by Public Accounts Committee Sub-Committee III regarding concession agreements.
+          </p>
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-md text-[10px]">
+              Public Accounts
+            </span>
+<span class="font-label-sm text-[10px] text-outline truncate max-w-[110px]">Auditor General</span>
+</div>
+</article>
+<!-- Item 3 -->
+<article class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer shadow-sm">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-code-md text-[11px] text-outline font-semibold uppercase">NA-24-DISC-109</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline" title="Pending Action"></span>
+<span class="font-code-md text-[10px] text-outline">2d ago</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold leading-snug mb-1">
+            Disqualification Reference: Art. 63(2) vs Member NA-15
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-1 mb-2">
+            Petition under Article 63(2) forwarded by parliamentary party secretariat for Speaker's prima facie finding.
+          </p>
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-md text-[10px]">
+              Const. Privilege
+            </span>
+<span class="font-label-sm text-[10px] text-outline truncate max-w-[110px]">ECP Reference</span>
+</div>
+</article>
+<!-- Item 4 -->
+<article class="p-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer shadow-sm">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="font-code-md text-[11px] text-outline font-semibold uppercase">NA-24-HR-078</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container" title="Approved"></span>
+<span class="font-code-md text-[10px] text-outline">3d ago</span>
+</div>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold leading-snug mb-1">
+            Young Parliamentarians Fellowship Scheme 2025
+          </h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant line-clamp-1 mb-2">
+            Budgetary allocation and inter-university induction criteria vetted by Admin & Finance Wing.
+          </p>
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-code-md text-[10px]">
+              HR & Capacity
+            </span>
+<span class="font-label-sm text-[10px] text-outline truncate max-w-[110px]">JS (Admin)</span>
+</div>
+</article>
+</div>
+<!-- Quick Document Registry Stats -->
+<div class="mt-space-md p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1.5">
+<div class="flex justify-between items-center text-[11px] font-code-md">
+<span class="text-on-surface-variant uppercase tracking-wider">Weekly Clearance Rate</span>
+<span class="text-primary-container font-semibold">91.4%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 91.4%;"></div>
+</div>
+<span class="font-label-sm text-[10px] text-outline text-right">32 processed / 3 pending directives</span>
+</div>
+</section>
+<!-- CENTER PANEL: Official Document Viewer & AI Executive Brief (44% -> col-span-12 xl:col-span-5) -->
+<section class="col-span-12 xl:col-span-5 flex flex-col gap-space-md">
+<!-- Docket Overview Bar -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-code-md text-label-md text-primary-container font-semibold">FILE NO. NA-24-LEG-091</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed text-[10px] font-code-md font-semibold uppercase">Confidential</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Summary for the Honorable Speaker</h2>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Print Official Gazette View">
+<span class="material-symbols-outlined text-[20px]">print</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Download Cryptographic PDF">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-low transition-colors" title="Expand Document Canvas">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- AI-Generated Executive Summary Box (Austerity, State Tone) -->
+<div class="rounded-lg bg-surface-container-low p-space-sm shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-primary-container">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">AI Executive Digest & Procedural Check</span>
+</div>
+<span class="font-code-md text-[10px] text-outline">Model NA-Rules-v2.6</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+<strong class="font-semibold text-on-surface">Substantive Purpose:</strong> Proposed amendment alters the composition of the Judicial Commission of Pakistan under Article 175A of the Constitution. Requires a two-thirds majority in both Chambers.
+          </p>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+<strong class="font-semibold text-on-surface">Rule 123 Alert:</strong> The Rules of Procedure and Conduct of Business in the National Assembly (2007) prescribe that prior to placing an official amendment on the House Agenda, copies must be circulated to parliamentary party leaders at least 24 hours prior to introduction unless specifically relaxed by the Chair.
+          </p>
+<!-- Extracted Procedural Tags -->
+<div class="flex flex-wrap items-center gap-1.5 pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-code-md text-[10px]">#JudicialCommission</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-code-md text-[10px]">#Art175A</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-code-md text-[10px]">#Rule123Circulation</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-code-md text-[10px]">#TwoThirdsMajority</span>
+</div>
+</div>
+</div>
+<!-- Rendered Official Document Sheet View (80%+ White, Formal Government Dignity) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col gap-space-lg relative overflow-hidden select-text">
+<!-- Official Archival Watermark Bar -->
+<div class="w-full py-1 bg-surface-container-low text-center rounded text-[10px] font-code-md tracking-widest text-outline uppercase">
+          Government of Pakistan — National Assembly Secretariat — Strictly Confidential — For Speaker's Chamber Only
+        </div>
+<!-- Official Header with Crest -->
+<div class="flex flex-col items-center text-center gap-1">
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low text-primary-container mb-1">
+<span class="material-symbols-outlined text-[32px]">account_balance</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-semibold">National Assembly of Pakistan</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Office of the Honorable Speaker</span>
+<span class="font-code-md text-[11px] text-outline">Constitution Avenue, G-5/2, Islamabad</span>
+</div>
+<div class="h-0.5 w-full bg-surface-container-low"></div>
+<!-- Memo Metadata Header -->
+<div class="grid grid-cols-2 gap-y-2 gap-x-4 font-body-sm text-body-sm bg-surface-container-low p-space-sm rounded-lg">
+<div><span class="font-semibold text-on-surface">TO:</span> The Honorable Speaker</div>
+<div><span class="font-semibold text-on-surface">DATE:</span> 24 October 2024</div>
+<div><span class="font-semibold text-on-surface">FROM:</span> Secretary, National Assembly</div>
+<div><span class="font-semibold text-on-surface">SUBJECT:</span> Placement of Constitution (26th Amend.) Bill</div>
+</div>
+<!-- Paragraphs (Official Parliamentary Draft Style) -->
+<div class="flex flex-col gap-space-md text-on-surface font-body-md text-body-md leading-relaxed">
+<div class="flex gap-space-sm items-start">
+<span class="font-code-md text-primary-container font-bold text-label-md shrink-0 w-6">1.</span>
+<p>
+              The Ministry of Law and Justice, through Cabinet Secretariat U.O. No. 4(12)/2024-Min-I dated 23rd October 2024, has transmitted the official Government Bill entitled <em>"The Constitution (Twenty-Sixth Amendment) Act, 2024"</em> with the formal recommendation of the Federal Cabinet under Article 74 of the 1973 Constitution.
+            </p>
+</div>
+<div class="flex gap-space-sm items-start">
+<span class="font-code-md text-primary-container font-bold text-label-md shrink-0 w-6">2.</span>
+<p>
+              The Bill primarily envisions institutional reform regarding the selection and evaluation framework of the superior judiciary under Article 175A, proposing an integrated Parliamentary Committee representation and structural benchmarks for high court appointments.
+            </p>
+</div>
+<div class="flex gap-space-sm items-start">
+<span class="font-code-md text-primary-container font-bold text-label-md shrink-0 w-6">3.</span>
+<div class="flex flex-col gap-2 w-full">
+<p>
+                In accordance with <strong>Rule 123</strong> of the Rules of Procedure and Conduct of Business in the National Assembly 2007, notice of three clear days is routinely mandated unless the Speaker dispenses with this requirement in exercise of discretion under proviso to Rule 123(1).
+              </p>
+<!-- Marginal Annotation Box -->
+<div class="p-space-sm bg-surface-container rounded-lg flex items-start gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">bookmark</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-[11px] font-semibold text-secondary">Legislative Branch Observation:</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant">Leader of the Opposition has orally requested 48 hours for caucus review before formal introduction.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-space-sm items-start">
+<span class="font-code-md text-primary-container font-bold text-label-md shrink-0 w-6">4.</span>
+<p>
+              Submitted for appropriate orders regarding placement of the legislative business on the <em>Orders of the Day</em> for the forthcoming sitting scheduled for Friday, 25th October 2024 at 10:30 AM.
+            </p>
+</div>
+</div>
+<!-- Official Seal and Digital Security Token Footer -->
+<div class="pt-space-md flex items-end justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-16 h-16 rounded bg-surface-container flex flex-col items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[28px]">qr_code_2</span>
+<span class="font-code-md text-[8px] uppercase">VERIFIED</span>
+</div>
+<div class="flex flex-col leading-tight">
+<span class="font-code-md text-[10px] text-on-surface font-semibold">Tahir Hussain</span>
+<span class="font-label-sm text-[10px] text-outline">Secretary, National Assembly</span>
+<span class="font-code-md text-[9px] text-outline">GovCloud-PK-DS-9912048</span>
+</div>
+</div>
+<!-- Official Green Coat of Arms Stamp -->
+<div class="flex flex-col items-end">
+<div class="px-3 py-1 bg-surface-container rounded font-code-md text-[10px] text-primary-container font-semibold uppercase tracking-wider">
+              PARLIAMENT SEC-I
+            </div>
+<span class="font-code-md text-[9px] text-outline mt-1">24-OCT-2024 08:30 PKT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT PANEL: AI Precedents, Related Records & Decision Terminal (28% -> col-span-12 xl:col-span-4) -->
+<section class="col-span-12 xl:col-span-4 flex flex-col gap-space-md">
+<!-- Section A: Related Records & Historical Precedents -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">history_edu</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Precedents & Records</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-code-md text-[10px]">AI Retrieved</span>
+</div>
+<p class="font-body-sm text-[11px] text-on-surface-variant">
+          Constitutional archives and previous Speaker rulings matching keywords: <em>Art. 175A, Rule 123 suspension</em>.
+        </p>
+<div class="flex flex-col gap-2 mt-1">
+<!-- Precedent Link 1 -->
+<a class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group flex items-start gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary-container shrink-0 mt-0.5">picture_as_pdf</span>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary-container font-semibold truncate">
+                Ruling of Speaker Dr. Fehmida Mirza (Nov 2010)
+              </span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">
+                On parliamentary primacy in judicial nominations under 19th Amendment Bill.
+              </span>
+<span class="font-code-md text-[10px] text-secondary mt-1">Ref: PARL-RUL-2010-09 | Page 44</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+</a>
+<!-- Precedent Link 2 -->
+<a class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group flex items-start gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary-container shrink-0 mt-0.5">library_books</span>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary-container font-semibold truncate">
+                NA Debates Vol. IV, Session 22 (Hansard)
+              </span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">
+                Verbatim discussion on suspension of Rule 123 for urgent legislative business.
+              </span>
+<span class="font-code-md text-[10px] text-secondary mt-1">Official Debates Record: pp. 112-145</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+</a>
+<!-- Precedent Link 3 -->
+<a class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all group flex items-start gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary-container shrink-0 mt-0.5">gavel</span>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface group-hover:text-primary-container font-semibold truncate">
+                Supreme Court Judgment: PLD 2015 SC 401
+              </span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">
+                Full Bench observation on constitutional amendment procedures and quorum requirements.
+              </span>
+<span class="font-code-md text-[10px] text-secondary mt-1">Constitutional Bench | Para 88</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:translate-x-0.5 transition-transform">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Section B: Speaker's Decision & Directive Box -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary-container">rate_review</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Speaker's Directive Terminal</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-code-md text-[10px] uppercase font-semibold">Chamber Action</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Select primary constitutional order for Secretariat compliance:
+        </p>
+<!-- Executive Radio Decisions -->
+<div class="grid grid-cols-2 gap-2">
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 text-primary-container accent-primary-container focus:ring-0" name="speaker_decision" type="radio" value="approve"/>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Approve</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary-container accent-primary-container focus:ring-0" name="speaker_decision" type="radio" value="return"/>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Return w/ Note</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary-container accent-primary-container focus:ring-0" name="speaker_decision" type="radio" value="committee"/>
+<span class="font-label-md text-label-md text-on-surface font-semibold">To Committee</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary-container accent-primary-container focus:ring-0" name="speaker_decision" type="radio" value="refer_house"/>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Refer to House</span>
+</label>
+</div>
+<!-- Structured Directive Text Area -->
+<div class="flex flex-col gap-1 mt-1">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold">Order / Endorsement Text</label>
+<button class="text-secondary hover:text-on-surface font-label-sm text-[11px] flex items-center gap-1 transition-colors" title="Speech-to-text input" type="button">
+<span class="material-symbols-outlined text-[14px]">mic</span>
+<span>Voice Note (EN / اردو)</span>
+</button>
+</div>
+<textarea class="w-full p-2.5 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary-container resize-none leading-relaxed" rows="4">Approved for placement on the Orders of the Day for Friday morning sitting with condition that Party Leaders be briefed at 09:30 AM in Speaker's Chamber.</textarea>
+</div>
+<!-- Urgent Execution Notice -->
+<div class="flex items-center gap-2 p-2 bg-secondary-fixed/50 rounded-lg text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span class="font-body-sm text-[11px] leading-tight">Digital seal will be appended with Speaker's biometric token upon dispatch.</span>
+</div>
+<!-- Action Button Row -->
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full h-10 bg-primary-container hover:bg-tertiary text-on-primary font-label-lg text-label-lg rounded-lg shadow-sm flex items-center justify-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">verified</span>
+<span>Dispatch Signed Directive</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-9 bg-surface-container-low hover:bg-surface-container text-primary-container font-label-md text-label-md rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Save Draft</span>
+</button>
+<button class="h-9 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">mail</span>
+<span>Draft AI Outgoing Letter</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- BOTTOM FULL STRIP: Docket Audit Trail -->
+<section class="mt-space-md w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-1 pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary-container">timeline</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Docket Cryptographic Audit Trail & Chain of Custody</h3>
+</div>
+<div class="flex items-center gap-2 font-code-md text-[11px] text-outline">
+<span>INTEGRITY HASH:</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-on-surface font-semibold truncate max-w-[200px]" title="SHA-256: 89f4b912a78ec42b01289dfb892a0149e8a931109a8">SHA-256 #89f4b...GovCloud HSM</span>
+</div>
+</div>
+<!-- Stepper Steps -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm">
+<!-- Step 1 -->
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-code-md text-[11px] flex items-center justify-center shrink-0">1</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Initiated (Legislation)</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Section Officer (Leg-I)</span>
+<span class="font-code-md text-[10px] text-outline mt-0.5">22-Oct-2024 11:20 AM</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-code-md text-[11px] flex items-center justify-center shrink-0">2</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Vetted & Endorsed</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Addl. Secretary (Legislation)</span>
+<span class="font-code-md text-[10px] text-outline mt-0.5">23-Oct-2024 03:45 PM</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container-low">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary font-code-md text-[11px] flex items-center justify-center shrink-0">3</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Secretariat Verification</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">Secretary National Assembly</span>
+<span class="font-code-md text-[10px] text-outline mt-0.5">24-Oct-2024 08:30 AM</span>
+</div>
+</div>
+<!-- Step 4: Active Current -->
+<div class="flex items-start gap-space-xs p-space-sm rounded-lg bg-surface-container">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary font-code-md text-[11px] flex items-center justify-center shrink-0 animate-pulse">4</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Hon. Speaker Chamber</span>
+<span class="font-body-sm text-[11px] text-secondary font-semibold">Active Review & Directive</span>
+<span class="font-code-md text-[10px] text-outline mt-0.5">24-Oct-2024 09:15 AM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Persistent Interactive Micro-Script for Terminal Feedback -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const radioInputs = document.querySelectorAll('input[name="speaker_decision"]');
+      const directiveBox = document.querySelector('textarea');
+      
+      const cannedTemplates = {
+        approve: "Approved for placement on the Orders of the Day for Friday morning sitting with condition that Party Leaders be briefed at 09:30 AM in Speaker's Chamber.",
+        return: "Returned with observation: Clarification required on financial implications under Article 73 before consideration.",
+        committee: "Referred to Standing Committee on Law and Justice for examination and report within seven working days.",
+        refer_house: "Direct the Secretariat to place the matter directly before the House for general discussion under Rule 130."
+      };
+
+      radioInputs.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          if (cannedTemplates[e.target.value] && directiveBox) {
+            directiveBox.value = cannedTemplates[e.target.value];
+          }
+        });
+      });
+    });
+  </script>
+</div></main></div><aside class="fixed top-16 right-0 h-[calc(100vh-4rem)] w-[420px] bg-surface-container-lowest shadow-[-4px_0_12px_rgba(0,0,0,0.06)] z-30 flex flex-col justify-between hidden" id="ai-drawer"><div class="flex flex-col"><div class="bg-primary-container px-space-md py-space-sm flex items-center justify-between text-on-primary"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">auto_awesome</span><div class="flex flex-col"><span class="font-label-lg text-label-lg font-semibold">Speaker AI Assistant</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/80 text-[10px]">معاونِ خصوصی برائے قانون سازی</span></div></div><div class="flex items-center gap-1"><button class="text-primary-fixed-dim hover:text-on-primary" type="button"><span class="material-symbols-outlined text-[18px]">remove</span></button><button class="text-primary-fixed-dim hover:text-on-primary" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button></div></div><div class="p-space-md flex flex-col gap-space-sm"><div class="p-space-sm bg-surface-container-low rounded-lg"><span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider block mb-1">Active Dossier Context</span><p class="font-body-sm text-body-sm text-on-surface">Monitoring Floor Motions & Adjournment Notices for the 42nd Parliamentary Assembly sitting.</p></div><div class="flex flex-col gap-1.5"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Prescribed Actions</span><button class="text-left px-2.5 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-between" type="button"><span>Draft official Speaker's ruling</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button><button class="text-left px-2.5 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-between" type="button"><span>Check precedents in 1973 Constitution</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button><button class="text-left px-2.5 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-between" type="button"><span>Verify Standing Committee quorum rules</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div></div></div><div class="p-space-md bg-surface-container-lowest"><div class="flex items-center gap-1.5 bg-surface-container-low px-space-sm py-1.5 rounded-lg mb-2"><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none" placeholder="Query constitutional rules & orders of the day..." type="text"/><button class="text-outline hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">mic</span></button><button class="text-primary-container hover:text-tertiary-container" type="button"><span class="material-symbols-outlined text-[18px]">send</span></button></div><span class="font-body-sm text-[10px] text-outline text-center block">Official verification required. AI advisory complies with NA Rules of Procedure 2007.</span></div></aside><div class="fixed bottom-6 right-6 z-40"><button class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_4px_12px_rgba(1,65,28,0.35)] ring-2 ring-secondary-fixed hover:bg-tertiary-container transition-all" type="button"><span class="material-symbols-outlined text-[24px]">auto_awesome</span></button></div></body></html>

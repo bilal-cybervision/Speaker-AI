@@ -1,0 +1,13 @@
+{
+  "name": "speaker-office-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.6",
+    "hono": "^4.10.3"
+  }
+}

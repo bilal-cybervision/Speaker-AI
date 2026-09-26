@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-fixed":"#b4f1bc","secondary":"#775928","surface-bright":"#f9f9ff","on-tertiary-container":"#80ab89","on-background":"#141b2b","on-secondary-container":"#7a5c2b","tertiary-fixed-dim":"#a5d1ad","background":"#f9f9ff","on-primary-fixed-variant":"#17512a","surface-container":"#e9edff","surface":"#f9f9ff","outline-variant":"#c0c9be","on-secondary":"#ffffff","on-error-container":"#93000a","tertiary-fixed":"#c0eec8","surface-container-high":"#e1e8fd","tertiary-container":"#163f25","primary-container":"#01411c","surface-container-lowest":"#ffffff","on-error":"#ffffff","secondary-fixed":"#ffdeae","inverse-surface":"#293040","inverse-primary":"#99d5a2","on-tertiary":"#ffffff","secondary-fixed-dim":"#e8c086","tertiary":"#002912","on-secondary-fixed-variant":"#5d4213","on-surface-variant":"#414941","surface-container-low":"#f1f3ff","on-primary":"#ffffff","on-tertiary-fixed":"#00210d","on-primary-container":"#74ae7e","on-secondary-fixed":"#281800","surface-tint":"#326a40","error-container":"#ffdad6","surface-dim":"#d3daef","on-tertiary-fixed-variant":"#274f33","primary-fixed-dim":"#99d5a2","primary":"#00290f","surface-container-highest":"#dce2f7","surface-variant":"#dce2f7","secondary-container":"#ffd79b","error":"#ba1a1a","inverse-on-surface":"#edf0ff","on-primary-fixed":"#00210b","on-surface":"#141b2b","outline":"#717970"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1.25rem","space-xl":"1.75rem","space-sm":"0.5rem","space-md":"0.75rem","margin":"2rem","space-lg":"1.25rem","space-xs":"0.25rem"},"fontFamily":{"label-sm":["Inter"],"label-md":["Inter"],"code-md":["JetBrains Mono"],"headline-lg":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"headline-xl":["Inter"],"body-sm":["Inter"],"label-lg":["Inter"],"display-lg":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"]},"fontSize":{"label-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.04em","fontWeight":"600"}],"label-md":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.02em","fontWeight":"500"}],"code-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0","fontWeight":"500"}],"headline-lg":["1.375rem",{"lineHeight":"1.875rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-md":["1.125rem",{"lineHeight":"1.625rem","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["0.875rem",{"lineHeight":"1.375rem","letterSpacing":"0","fontWeight":"400"}],"headline-xl":["1.75rem",{"lineHeight":"2.25rem","letterSpacing":"-0.015em","fontWeight":"700"}],"body-sm":["0.75rem",{"lineHeight":"1.125rem","letterSpacing":"0.005em","fontWeight":"400"}],"label-lg":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg":["2.25rem",{"lineHeight":"2.75rem","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["1rem",{"lineHeight":"1.625rem","letterSpacing":"0","fontWeight":"400"}],"headline-sm":["1rem",{"lineHeight":"1.5rem","letterSpacing":"0","fontWeight":"600"}]}}}};</script><style id="iframe-shell-compat">
+/* When loaded inside the unified shell (iframe), hide duplicate sidebar/header */
+@media all {
+  html.in-iframe aside.fixed { display: none !important; }
+  html.in-iframe div.pl-64 > header.fixed { display: none !important; }
+  html.in-iframe div.pl-64 { padding-left: 0 !important; }
+  html.in-iframe div.pl-64 > main { padding-top: 0.5rem !important; }
+  html.in-iframe .fixed.bottom-6.right-6 { display: none !important; }
+}
+</style>
+<script>
+// Detect if we are inside an iframe and apply the class
+if (window.self !== window.top) {
+  document.documentElement.classList.add('in-iframe');
+}
+</script>
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-primary-container z-50 flex flex-col justify-between select-none shadow-[1px_0_0_0_#163f25]"><div class="flex flex-col"><div class="px-space-md py-space-md bg-tertiary flex items-center gap-space-sm"><img alt="National Assembly Crest" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYCe4HNrOxtFQhhi2tW4wfBBP7Vc6B4v6A9zza8rfC0UEt3lgZ66EtyjMxroc_JuTjJlJOyoYCHDKl7wMJQ0d-wYyyFRVOS1xuy4DdI78u2CKICbeS5g9_AdJiNzqc1MptVTrTjOG3RLLRKICKvJ27Nkf1y4Z-ejuCyN_W9Na3hrPbsppO_hKV_G_LYyuPMevrL2qcOfVDkgNHvmGlCs5s563hUOnFDCYXlIDLOli--Ps7SiuUroR"/><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-primary uppercase tracking-wider truncate">National Assembly</span><span class="font-label-sm text-label-sm text-secondary-fixed truncate">Speaker's Secretariat</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/80 text-[10px] leading-tight truncate">ایوانِ زیریں پاکستان</span></div></div><div class="px-space-md py-space-xs"><span class="font-label-sm text-label-sm text-primary-fixed-dim/70 uppercase tracking-widest">Official Modules</span></div><nav class="flex flex-col gap-1 px-space-xs overflow-y-auto max-h-[calc(100vh-210px)]" data-active-classes="bg-tertiary-container text-on-primary font-label-lg rounded-lg"><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-2 transition-colors bg-tertiary-container text-on-primary font-label-lg rounded-lg" data-path="overview-dashboard" href="#"><span class="material-symbols-outlined text-[18px]">dashboard</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">Home / Overview</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ڈیش بورڈ</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="files-documents" href="#"><span class="material-symbols-outlined text-[18px]">folder_open</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">1. Files & Documents</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">فائلز و دستاویزات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="directions-decisions" href="#"><span class="material-symbols-outlined text-[18px]">gavel</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">2. Directions & Decisions</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">احکامات و تعمیل</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="official-meetings" href="#"><span class="material-symbols-outlined text-[18px]">groups</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">3. Official Meetings</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">سرکاری ملاقاتیں</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="daily-schedule" href="#"><span class="material-symbols-outlined text-[18px]">calendar_today</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">4. Daily Schedule</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">روزنامچہ و نظام الاوقات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="speeches-engagements" href="#"><span class="material-symbols-outlined text-[18px]">record_voice_over</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">5. Speeches & Visits</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">تقاریر و دورہ جات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="telephone-log" href="#"><span class="material-symbols-outlined text-[18px]">phone_in_talk</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">6. Telephone Log</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ٹیلیفون پیغامات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="remote-approvals" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">7. Remote Approvals</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">ریموٹ منظوری</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="media-press" href="#"><span class="material-symbols-outlined text-[18px]">newspaper</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">8. Media & Press</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">میڈیا و نشریات</span></div></a><a class="flex items-center gap-space-sm px-space-sm py-2 rounded-lg text-primary-fixed-dim hover:bg-tertiary-container hover:text-on-primary transition-colors" data-path="greeting-cards" href="#"><span class="material-symbols-outlined text-[18px]">mark_email_read</span><div class="flex flex-col leading-tight min-w-0"><span class="font-label-md text-label-md truncate">9. Greeting Cards</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/60 text-[9px]">تہنیتی پیغامات</span></div></a></nav></div><div class="p-space-sm bg-tertiary/60 mx-space-xs mb-space-sm rounded-lg flex flex-col gap-1"><div class="flex items-center justify-between"><span class="font-code-md text-[10px] text-secondary-fixed uppercase tracking-wider font-semibold">SECURITY: LEVEL 1</span><span class="font-code-md text-[10px] text-primary-fixed-dim/70">SECRET</span></div><div class="flex items-center justify-between text-primary-fixed-dim/60 text-[10px] font-code-md"><span>GovCloud PK</span><span>v3.4.1 NA</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest z-40 flex items-center justify-between px-space-lg shadow-[0_2px_0_0_#01411c]"><div class="flex items-center gap-space-sm"><img alt="National Assembly Crest" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzYCe4HNrOxtFQhhi2tW4wfBBP7Vc6B4v6A9zza8rfC0UEt3lgZ66EtyjMxroc_JuTjJlJOyoYCHDKl7wMJQ0d-wYyyFRVOS1xuy4DdI78u2CKICbeS5g9_AdJiNzqc1MptVTrTjOG3RLLRKICKvJ27Nkf1y4Z-ejuCyN_W9Na3hrPbsppO_hKV_G_LYyuPMevrL2qcOfVDkgNHvmGlCs5s563hUOnFDCYXlIDLOli--Ps7SiuUroR"/><div class="flex flex-col leading-tight"><span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-tight">Speaker AI Portal</span><span class="font-label-sm text-label-sm text-on-surface-variant">Chamber Secretariat | Legislative Intelligence</span></div></div><div class="flex-1 max-w-xl mx-space-lg"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-14 py-1.5 bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline rounded-lg outline-none focus:ring-1 focus:ring-primary-container" placeholder="Search motions, files, rulings, gazettes, verbatim transcripts (Ctrl + K)..." type="text"/><kbd class="absolute right-2 font-code-md text-[10px] bg-surface-container px-1.5 py-0.5 rounded text-secondary font-semibold">Ctrl+K</kbd></div></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-1 px-space-xs py-1 rounded bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[16px]">translate</span><span>EN | اردو</span></button><div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded-lg"><span class="w-2 h-2 rounded-full bg-secondary"></span><span class="font-label-sm text-label-sm text-on-surface font-semibold">42nd Session</span><span class="font-label-sm text-label-sm text-outline-variant">|</span><span class="font-label-sm text-label-sm text-on-surface-variant">Day 14</span></div><div class="relative flex items-center justify-center p-1 rounded-lg text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full ring-2 ring-surface-container-lowest"></span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right leading-tight"><span class="font-label-md text-label-md text-on-surface font-semibold">Hon. Sardar Ayaz Sadiq</span><span class="font-label-sm text-label-sm text-outline">Speaker, National Assembly</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNdnQOJDfZgG2zftHr7X5fBQZjJiwmEzpuFFYajHhnVcwa8s1I2EPcX2ArwjOF7aL1yGsu3ET-EAiVSd_vFLZyuT0qrzwEBtd6ARpoSe1IzAzDDxBCq_2ljZXrL01gK512-v9_0c4Tz6i0GVcQJp_2fqR52JITvc906TVl0J9wU_QAm0gR-PbkI7T7M759ZtZObDwtgkbVDtP4A8J3lDFqev-xAkVviTqa0ifVOJUxEg1upgFU4vuc"/></div></div></header><main class="w-full pt-16 bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- 1. Executive Top Header & Alert Banner -->
+<section class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-lg rounded-lg shadow-sm border-l-4 border-l-primary-container">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest font-semibold">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+<span class="text-outline-variant font-label-sm text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-outline font-medium">Islamic Republic of Pakistan</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-0.5">
+          Executive Chamber Dashboard
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[15px] text-primary-container">calendar_month</span>
+<span>Thursday, 24 October 2024</span>
+<span class="text-outline-variant">|</span>
+<span class="font-code-md text-code-md text-on-surface-variant">20 Rabi al-Thani 1446 AH</span>
+<span class="text-outline-variant">|</span>
+<span class="font-code-md text-code-md text-primary-container font-semibold">PST 10:14 AM</span>
+</p>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">print</span>
+<span>Print Daily Brief</span>
+</button>
+<button class="px-3 py-1.5 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">translate</span>
+<span>اردو ویو (RTL)</span>
+</button>
+<button class="px-3 py-1.5 rounded bg-error text-on-error hover:bg-on-error-container font-label-md text-label-md flex items-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+<span>Emergency Summon</span>
+</button>
+</div>
+</div>
+<!-- Alert Strip -->
+<div class="flex items-center justify-between gap-3 bg-secondary-fixed/30 px-space-md py-2 rounded border-l-2 border-l-secondary text-on-surface">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[20px] text-secondary shrink-0">notification_important</span>
+<p class="font-body-sm text-body-sm truncate">
+<strong class="font-semibold text-secondary">Parliamentary Alert:</strong> Joint Sitting of Parliament scheduled for Tuesday 10:00 AM — Standing Committee on Finance compliance dossier due by 04:00 PM today.
+        </p>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="font-code-md text-[11px] text-secondary font-semibold bg-surface-container-lowest px-2 py-0.5 rounded">CIRCULAR #NA-42/DIR</span>
+<button class="text-secondary hover:text-on-surface font-label-sm text-label-sm underline ml-1" type="button">Acknowledge</button>
+</div>
+</div>
+</section>
+<!-- 2. Four Top Executive Metric Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between border-t-[3px] border-t-primary-container">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Pending Decisions</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-code-md text-[10px] text-secondary font-bold uppercase">Urgent</span>
+</div>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none">07</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Files</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1 line-clamp-2">
+          3 constitutional references, 4 routine financial disbursements.
+        </p>
+</div>
+<div class="pt-2 border-t border-t-outline-variant/30 flex items-center justify-between">
+<span class="font-code-md text-[11px] text-secondary font-semibold">Queue: High Priority</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between border-t-[3px] border-t-primary-container">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Today's Schedule</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-code-md text-[10px] text-primary-container font-bold uppercase">Active</span>
+</div>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none">06</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Engagements</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1 line-clamp-2">
+          1 Chamber presiding session, 2 Diplomatic calls, 3 Delegations.
+        </p>
+</div>
+<div class="pt-2 border-t border-t-outline-variant/30 flex items-center justify-between">
+<span class="font-code-md text-[11px] text-primary-container font-semibold">Next: 10:30 AM Session</span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">calendar_today</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between border-t-[3px] border-t-primary-container">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Overdue Directions</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="font-code-md text-[10px] text-error font-bold uppercase">+48h Delay</span>
+</div>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-error font-bold leading-none">02</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Instructions</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1 line-clamp-2">
+          Ministry of Parliamentary Affairs compliance report overdue by 48h.
+        </p>
+</div>
+<div class="pt-2 border-t border-t-outline-variant/30 flex items-center justify-between">
+<span class="font-code-md text-[11px] text-error font-semibold">Action: Issue Reminder</span>
+<span class="material-symbols-outlined text-[16px] text-error">priority_high</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between border-t-[3px] border-t-primary-container">
+<div class="flex items-start justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-semibold">Unread Correspondence</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-code-md text-[10px] text-outline font-bold uppercase">Secretariat</span>
+</div>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface font-bold leading-none">18</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant">Documents</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1 line-clamp-2">
+          5 flagged High Priority by Senior Private Secretary (SPS).
+        </p>
+</div>
+<div class="pt-2 border-t border-t-outline-variant/30 flex items-center justify-between">
+<span class="font-code-md text-[11px] text-on-surface-variant font-semibold">5 Confidential</span>
+<span class="material-symbols-outlined text-[16px] text-outline">mark_email_unread</span>
+</div>
+</div>
+</section>
+<!-- 3. Two-Column Operational Core -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column (40% / 5 cols): Today's Schedule & Chamber Order -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col h-full">
+<div class="flex items-center justify-between pb-space-sm border-b border-b-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary-container">event_note</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Today's Schedule & Chamber Order</h2>
+</div>
+<span class="font-code-md text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface font-semibold">DAY 14</span>
+</div>
+<!-- Vertical Timeline List -->
+<div class="relative flex flex-col gap-space-md my-space-md pl-4 before:content-[''] before:absolute before:left-1.5 before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container">
+<!-- Item 1: Completed -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-primary-container ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-md text-code-md text-on-surface font-bold">09:30 AM</span>
+<span class="font-label-sm text-label-sm text-primary-container bg-primary-fixed/40 px-1.5 py-0.5 rounded flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[12px]">done</span> Concluded
+              </span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Daily SPS Briefing with Principal Secretary</p>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">meeting_room</span>
+<span>Speaker's Chamber Office</span>
+<span class="text-outline-variant">•</span>
+<span class="text-secondary font-medium">Protocol: Confidential</span>
+</div>
+</div>
+<!-- Item 2: Active / In Progress -->
+<div class="relative flex flex-col gap-1 p-2 rounded bg-surface-container-low/70 border-l-2 border-l-secondary">
+<div class="absolute -left-[22px] top-3 w-2.5 h-2.5 rounded-full bg-secondary ring-4 ring-surface-container-lowest animate-pulse"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-md text-code-md text-secondary font-bold">10:30 AM — 01:00 PM</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed/50 px-1.5 py-0.5 rounded flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Current Floor Order
+              </span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Orders of the Day — Presiding House Session</p>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">gavel</span>
+<span class="font-medium">National Assembly Chamber (42nd Session)</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline text-[11px] mt-0.5">
+              Agenda: Consideration of Private Member's Bills, Call Attention Notices, Federal Ombudsman Act amendment.
+            </p>
+</div>
+<!-- Item 3: Confirmed -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-md text-code-md text-on-surface font-bold">01:15 PM</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Diplomatic Call</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Luncheon with H.E. Ambassador of Turkiye</p>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">restaurant</span>
+<span>Chamber State Banquet Suite</span>
+<span class="text-outline-variant">•</span>
+<span class="text-primary-container font-medium">Bilateral Protocol</span>
+</div>
+</div>
+<!-- Item 4: Confirmed -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-md text-code-md text-on-surface font-bold">03:00 PM</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Media Consultation</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Delegation: All Pakistan Newspaper Society (APNS)</p>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">groups</span>
+<span>Parliamentary Committee Room No. 2</span>
+</div>
+</div>
+<!-- Item 5: Pending -->
+<div class="relative flex flex-col gap-1">
+<div class="absolute -left-4 top-1 w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-surface-container-lowest"></div>
+<div class="flex items-center justify-between">
+<span class="font-code-md text-code-md text-on-surface font-bold">04:30 PM</span>
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-low px-1.5 py-0.5 rounded">Signatures & Review</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">File Signing & Constitutional Petitions Review</p>
+<div class="flex items-center gap-2 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[14px]">stylus</span>
+<span>Speaker's Desk | Legislative Branch</span>
+</div>
+</div>
+</div>
+<!-- Action / View Roster -->
+<div class="mt-auto pt-space-sm border-t border-t-outline-variant/40 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-outline">Total 6 official protocol engagements</span>
+<button class="px-3 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-primary-container font-label-md text-label-md flex items-center gap-1 font-semibold transition-colors" type="button">
+<span>Full Parliamentary Roster</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column (60% / 7 cols): "Awaiting Your Decision" Priority Queue -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-b-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary-container">assignment_late</span>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">Priority Decision Queue</h2>
+<span class="font-label-sm text-label-sm text-outline">Actionable constitutional files awaiting Speaker's endorsement</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-code-md text-[11px] text-secondary font-semibold bg-secondary-fixed/40 px-2 py-0.5 rounded">3 URGENT</span>
+<span class="font-code-md text-[11px] text-outline bg-surface-container px-2 py-0.5 rounded">7 TOTAL</span>
+</div>
+</div>
+<!-- Priority Card 1 (Urgent Constitutional Ruling) -->
+<div class="p-space-md rounded bg-surface-container-lowest border-l-4 border-l-secondary shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-code-md text-code-md font-bold text-primary-container">FILE #NA-2024-LEG-089</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Legislation Wing</span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-md text-[11px] text-outline">Rec'd Today 08:45 AM</span>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold px-2 py-0.5 rounded uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Urgent Ruling
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
+            Ruling on Question of Privilege Regarding Ministry Non-compliance on Ombudsman Directives
+          </h3>
+<!-- AI Executive Brief Pill -->
+<div class="p-space-sm rounded bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed-variant shrink-0 mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">AI Executive Brief (Rules of Procedure 2007)</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Motion prima facie meets admissibility criteria under Rule 66. Ministry of Law advises Speaker's Chamber to refer the question to the Standing Committee on Rules of Procedure and Privileges with a 14-day statutory return mandate.
+              </p>
+</div>
+</div>
+<!-- Inline Actions -->
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">person</span>
+<span>Initiator: Addl. Secretary (Legislation)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+                Chamber Hearing
+              </button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary-container font-label-md text-label-md shadow-sm hover:bg-surface-container transition-colors" type="button">
+                Query Wing
+              </button>
+<button class="px-3 py-1 rounded bg-primary-container hover:bg-tertiary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+<span>Approve Referral</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Priority Card 2 (Inter-Parliamentary Sanction) -->
+<div class="p-space-md rounded bg-surface-container-lowest border-l-4 border-l-primary-container shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-code-md text-code-md font-bold text-primary-container">FILE #NA-2024-ADM-412</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Inter-Parliamentary Relations</span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-md text-[11px] text-outline">23 Oct 2024</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container text-on-surface-variant font-semibold px-2 py-0.5 rounded uppercase tracking-wider">
+              Normal Clearance
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
+            Sanction of Official Parliamentary Delegation to the 149th Inter-Parliamentary Union (IPU) Geneva
+          </h3>
+<div class="p-space-sm rounded bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-primary-container shrink-0 mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary-container font-bold uppercase tracking-wider">AI Executive Brief</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Bipartisan 5-member parliamentary delegation structured in strict accord with proportional seat quota (Treasury: 3, Opposition: 2). Ministry of Foreign Affairs clearance and NA Finance Branch budgetary allocation verified.
+              </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">account_balance_wallet</span>
+<span>Financial Impact: PKR 14.8M (Within Budget)</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+                Modify Roster
+              </button>
+<button class="px-3 py-1 rounded bg-primary-container hover:bg-tertiary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[15px]">verified</span>
+<span>Sanction Delegation</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Priority Card 3 (Establishment Promotion) -->
+<div class="p-space-md rounded bg-surface-container-lowest border-l-4 border-l-outline-variant shadow-sm flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-code-md text-code-md font-bold text-primary-container">FILE #NA-2024-EST-105</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Establishment Branch</span>
+<span class="text-outline-variant">•</span>
+<span class="font-code-md text-[11px] text-outline">22 Oct 2024</span>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-low text-outline font-semibold px-2 py-0.5 rounded uppercase tracking-wider">
+              Routine Administrative
+            </span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">
+            Promotion of Assembly Stenographers to Private Secretaries (BPS-17 to BPS-18)
+          </h3>
+<div class="p-space-sm rounded bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[18px] text-outline shrink-0 mt-0.5">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline font-bold uppercase tracking-wider">AI Executive Brief</span>
+<p class="font-body-sm text-body-sm text-on-surface mt-0.5">
+                Departmental Promotion Committee (DPC) recommended 4 officers on seniority-cum-fitness basis. Verification confirmed zero disciplinary proceedings or court stay orders pending.
+              </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 pt-1">
+<div class="flex items-center gap-1 text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">folder_shared</span>
+<span>4 Officers Recommended</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+                View DPC Minutes
+              </button>
+<button class="px-3 py-1 rounded bg-primary-container hover:bg-tertiary-container text-on-primary font-label-md text-label-md font-semibold transition-colors flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[15px]">check</span>
+<span>Sign Minute</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Full-Width Bottom Section: Recent Activity Audit Feed Across All 9 Modules -->
+<section class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-sm border-b border-b-outline-variant/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-primary-container">history_edu</span>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">Master Secretariat Audit Trail</h2>
+<span class="font-label-sm text-label-sm text-outline">Real-time parliamentary logging across all 9 statutory modules</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-outline">download</span>
+<span>Export Gazette Format (PDF)</span>
+</button>
+</div>
+</div>
+<!-- Filter Tabs Pill Bar -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-nowrap">
+<button class="px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold" type="button">
+        All Modules (42)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+        Files & Rulings (14)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+        Directions (8)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+        Meetings (9)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+        Press Releases (6)
+      </button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">
+        Security Approvals (5)
+      </button>
+</div>
+<!-- Audit Table Strip -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label-sm text-label-sm text-outline uppercase tracking-wider">
+<th class="py-2.5 px-3 font-semibold">Timestamp (PST)</th>
+<th class="py-2.5 px-3 font-semibold">Module Origin</th>
+<th class="py-2.5 px-3 font-semibold">Transaction / Action Performed</th>
+<th class="py-2.5 px-3 font-semibold">Official Actor</th>
+<th class="py-2.5 px-3 font-semibold">File / Record ID</th>
+<th class="py-2.5 px-3 font-semibold text-right">Verification</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body-sm text-body-sm text-on-surface">
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-code-md text-code-md text-outline">10:08:14 AM</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 text-primary-container font-semibold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span>Files & Rulings</span>
+</span>
+</td>
+<td class="py-2.5 px-3 font-medium">Digital signature appended on Adjournment Motion #88</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Addl. Secretary (Legislation)</td>
+<td class="py-2.5 px-3 font-code-md text-[12px] text-primary-container">#NA-2024-ADM-088</td>
+<td class="py-2.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary-container font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Signed & Sealed
+              </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-code-md text-code-md text-outline">09:54:21 AM</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 text-on-surface font-semibold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">gavel</span>
+<span>Directions & Decisions</span>
+</span>
+</td>
+<td class="py-2.5 px-3 font-medium">Overdue reminder sent to Ministry of Water Resources</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Director Implementation</td>
+<td class="py-2.5 px-3 font-code-md text-[12px] text-outline">#DIR-2024-WTR-04</td>
+<td class="py-2.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Notice Dispatched
+              </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-code-md text-code-md text-outline">09:35:10 AM</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 text-on-surface font-semibold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">newspaper</span>
+<span>Media & Press</span>
+</span>
+</td>
+<td class="py-2.5 px-3 font-medium">Bilingual press communiqué released: Speaker's address at PILDAT seminar</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Director General Media (PR Wing)</td>
+<td class="py-2.5 px-3 font-code-md text-[12px] text-outline">#PR-2024-OCT-192</td>
+<td class="py-2.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary-container font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Published
+              </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-code-md text-code-md text-outline">09:12:00 AM</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 text-on-surface font-semibold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">verified</span>
+<span>Remote Approvals</span>
+</span>
+</td>
+<td class="py-2.5 px-3 font-medium">Biometric session token renewed for Chamber Mobile Unit</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Chief Technical Officer (GovCloud)</td>
+<td class="py-2.5 px-3 font-code-md text-[12px] text-outline">#SEC-AUTH-8821</td>
+<td class="py-2.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary-container font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span> Level-1 Auth
+              </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-2.5 px-3 font-code-md text-code-md text-outline">08:48:32 AM</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 text-on-surface font-semibold font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">groups</span>
+<span>Official Meetings</span>
+</span>
+</td>
+<td class="py-2.5 px-3 font-medium">State Protocol briefing package uploaded: Turkish Ambassador Visit</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Chief Protocol Officer</td>
+<td class="py-2.5 px-3 font-code-md text-[12px] text-outline">#MTG-2024-DIP-11</td>
+<td class="py-2.5 px-3 text-right">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-outline font-semibold">
+<span class="w-2 h-2 rounded-full bg-outline"></span> Dossier Ready
+              </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Audit Footer -->
+<div class="flex items-center justify-between pt-2">
+<span class="font-code-md text-[11px] text-outline">Archival standard: ISO 15489 Parliamentary Records Management</span>
+<div class="flex items-center gap-1 text-primary-container hover:text-tertiary-container font-label-sm text-label-sm font-semibold cursor-pointer">
+<span>Load 50 Older Audit Logs</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Inline Interactive Script for Navigation highlight and Panel syncing -->
+<script>
+  (function() {
+    // Highlight 'Home / Overview' as active in the persistent sidebar
+    const navLinks = document.querySelectorAll('aside nav a[data-path]');
+    navLinks.forEach(link => {
+      if (link.getAttribute('data-path') === 'overview-dashboard') {
+        link.className = 'flex items-center gap-space-sm px-space-sm py-2 rounded-lg bg-tertiary-container text-on-primary font-label-lg transition-colors';
+      }
+    });
+
+    // Provide context to the Shell AI drawer if it opens
+    const drawerContext = document.querySelector('#ai-drawer p.font-body-sm');
+    if (drawerContext) {
+      drawerContext.textContent = 'Overview Context: 7 pending files require your constitutional endorsement before 04:00 PM session adjournment.';
+    }
+  })();
+</script></main></div><aside class="fixed top-16 right-0 h-[calc(100vh-4rem)] w-[420px] bg-surface-container-lowest shadow-[-4px_0_12px_rgba(0,0,0,0.06)] z-30 flex flex-col justify-between hidden" id="ai-drawer"><div class="flex flex-col"><div class="bg-primary-container px-space-md py-space-sm flex items-center justify-between text-on-primary"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-secondary-fixed">auto_awesome</span><div class="flex flex-col"><span class="font-label-lg text-label-lg font-semibold">Speaker AI Assistant</span><span class="font-label-sm text-label-sm text-primary-fixed-dim/80 text-[10px]">معاونِ خصوصی برائے قانون سازی</span></div></div><div class="flex items-center gap-1"><button class="text-primary-fixed-dim hover:text-on-primary" type="button"><span class="material-symbols-outlined text-[18px]">remove</span></button><button class="text-primary-fixed-dim hover:text-on-primary" type="button"><span class="material-symbols-outlined text-[18px]">close</span></button></div></div><div class="p-space-md flex flex-col gap-space-sm"><div class="p-space-sm bg-surface-container-low rounded-lg"><span class="font-label-sm text-label-sm text-outline font-semibold uppercase tracking-wider block mb-1">Active Dossier Context</span><p class="font-body-sm text-body-sm text-on-surface">Monitoring Floor Motions & Adjournment Notices for the 42nd Parliamentary Assembly sitting.</p></div><div class="flex flex-col gap-1.5"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Prescribed Actions</span><button class="text-left px-2.5 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-between" type="button"><span>Draft official Speaker's ruling</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button><button class="text-left px-2.5 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-between" type="button"><span>Check precedents in 1973 Constitution</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button><button class="text-left px-2.5 py-1.5 rounded-lg bg-surface-container font-label-sm text-label-sm text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-between" type="button"><span>Verify Standing Committee quorum rules</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></button></div></div></div><div class="p-space-md bg-surface-container-lowest"><div class="flex items-center gap-1.5 bg-surface-container-low px-space-sm py-1.5 rounded-lg mb-2"><input class="w-full bg-transparent font-body-sm text-body-sm text-on-surface placeholder:text-outline outline-none" placeholder="Query constitutional rules & orders of the day..." type="text"/><button class="text-outline hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">mic</span></button><button class="text-primary-container hover:text-tertiary-container" type="button"><span class="material-symbols-outlined text-[18px]">send</span></button></div><span class="font-body-sm text-[10px] text-outline text-center block">Official verification required. AI advisory complies with NA Rules of Procedure 2007.</span></div></aside><div class="fixed bottom-6 right-6 z-40"><button class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-[0_4px_12px_rgba(1,65,28,0.35)] ring-2 ring-secondary-fixed hover:bg-tertiary-container transition-all" type="button"><span class="material-symbols-outlined text-[24px]">auto_awesome</span></button></div></body></html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Noto+Nastaliq+Urdu:wght@400;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#585f6c","on-tertiary-fixed":"#281800","inverse-on-surface":"#eaf1ff","on-tertiary-container":"#bf9b64","surface-container-lowest":"#ffffff","surface":"#f8f9ff","secondary-fixed":"#dce2f3","inverse-primary":"#99d5a2","primary":"#00290f","on-primary-fixed":"#00210b","on-tertiary":"#ffffff","tertiary-container":"#4b3304","error-container":"#ffdad6","tertiary-fixed":"#ffdeae","primary-fixed-dim":"#99d5a2","error":"#ba1a1a","surface-container":"#e6eeff","primary-container":"#01411c","background":"#f8f9ff","tertiary":"#311f00","on-secondary-container":"#5e6572","surface-bright":"#f8f9ff","surface-dim":"#d0dbed","on-secondary":"#ffffff","tertiary-fixed-dim":"#e8c086","surface-container-highest":"#d9e3f6","on-primary":"#ffffff","on-secondary-fixed":"#151c27","secondary-fixed-dim":"#c0c7d6","on-primary-fixed-variant":"#17512a","inverse-surface":"#27313f","on-primary-container":"#74ae7e","surface-container-high":"#dee9fc","outline":"#717970","outline-variant":"#c0c9be","on-tertiary-fixed-variant":"#5d4213","secondary-container":"#dce2f3","on-background":"#121c2a","on-surface-variant":"#414941","surface-tint":"#326a40","on-secondary-fixed-variant":"#404754","surface-variant":"#d9e3f6","on-surface":"#121c2a","on-error":"#ffffff","on-error-container":"#93000a","primary-fixed":"#b4f1bc","surface-container-low":"#eff4ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"2rem","space-lg":"1.25rem","margin-desktop":"2rem","margin":"1rem","gutter-desktop":"1.5rem","gutter":"1rem","space-sm":"0.5rem","space-md":"0.75rem","space-xs":"0.25rem"},"fontFamily":{"body-sm":["Public Sans"],"headline-md":["Public Sans"],"display":["Public Sans"],"headline-lg":["Public Sans"],"label-sm":["Public Sans"],"body-md":["Public Sans"],"headline-sm":["Public Sans"],"body-lg":["Public Sans"],"label-md":["Public Sans"]},"fontSize":{"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"display":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-primary-container z-50 flex flex-col justify-between text-on-primary border-r border-primary"><div class="flex flex-col flex-1 min-h-0"><div class="p-space-lg border-b border-primary flex items-center gap-space-md"><img alt="National Assembly of Pakistan Crest" class="h-12 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UWFqciu_LfTD68Ls2twq9S4itnOqOnF8XX05_nKmw8LtsMgWpMQDzcBq4NTIlkMAzr603o9omTGyhYEW6-w_GrKyZyOI9MoAy0zWPrs0qKer2JTgBo8cHfz-7IIp-c3XLMqTdlS3Rbsz76DRvewWfWVKT7virKAmFqKFfqgHaKkKXEJiP2TDtygOjJ3-HZBCzqkiN0BAHNCh1KpY7vCFq3RKjZj6bNbrXYifKD6Bg7xLHWgpTKu_aRdeNg"><div class="flex flex-col min-w-0"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-primary truncate font-bold">SPEAKER AI PORTAL</span><span class="font-body-sm text-body-sm text-tertiary-fixed-dim truncate">قومی اسمبلی پاکستان</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-tertiary-fixed font-semibold mt-0.5">Office of the Speaker</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-md py-space-xs flex items-center justify-between text-on-primary-container text-label-sm uppercase tracking-wider font-label-sm border-b border-primary/50"><span class="">Executive Modules</span><span class="">شعبہ جات</span></div></div><nav class="flex-1 px-space-md space-y-1 overflow-y-auto" data-active-classes="bg-primary text-tertiary-fixed border-l-4 border-tertiary-fixed font-semibold pl-3"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="files-and-documents" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">description</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Files &amp; Documents</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">مقدمات و دستاویزات</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="follow-up-of-directions" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">fact_check</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Follow-up of Directions</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">احکامات کی پیش رفت</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="official-meetings" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">groups</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Official Meetings</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">سرکاری اجلاس اور ریکارڈ</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="schedule-management" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">calendar_month</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Schedule Management</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">روزنامچہ و طویل المدتی نظام الاوقات</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="speeches-and-tours" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">record_voice_over</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Speeches &amp; Tours</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">تقاریر و دورہ جاتی پروگرام</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="telephone-calls" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">call</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Telephone Calls</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">ٹیلی فون کالز کا انتظام</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="remote-approval" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">verified_user</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Remote Approval</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">دور دراز سے منظوری</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="press-and-media" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">newspaper</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Press &amp; Media</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">پریس ریلیز و میڈیا مانیٹرنگ</span></div></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded text-on-primary/90 hover:bg-primary hover:text-on-primary transition-colors group" data-path="greeting-cards" href="#"><span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:text-on-primary shrink-0">drafts</span><div class="flex flex-col min-w-0 leading-tight"><span class="font-label-md text-label-md truncate">Greeting Cards</span><span class="font-body-sm text-[11px] text-on-primary-container group-hover:text-surface-container-high truncate">تہنیتی پیغامات و کارڈز</span></div></a></nav></div><div class="p-space-md border-t border-primary bg-primary/40 space-y-2 shrink-0"><div class="flex items-center justify-between px-space-xs"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-label-sm uppercase tracking-widest bg-tertiary-container text-tertiary-fixed border border-on-tertiary-container/40">RESTRICTED / سرکاری امور</span><span class="font-label-sm text-[10px] text-on-primary-container tracking-wider">v3.4.1-gov</span></div><div class="flex items-center justify-between px-space-xs text-[11px] text-on-primary-container"><span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-primary-fixed animate-pulse"></span>Encrypted GovNet</span><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">lock</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest border-b-2 border-primary-container z-40 px-space-lg flex items-center justify-between gap-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex-1 max-w-2xl"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">search</span><input class="w-full pl-10 pr-16 py-2 bg-surface border border-outline-variant rounded text-body-md font-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:border-primary-container text-xs" placeholder="Search all files, decisions, summaries with AI... (e.g. 'Standing Committee report on Finance 2024') / تلاش بذریعہ مصنوعی ذہانت" type="text"><div class="absolute right-2.5 flex items-center pointer-events-none"><kbd class="px-1.5 py-0.5 text-[10px] font-label-sm bg-surface-container border border-outline-variant rounded text-secondary font-mono font-semibold">⌘K</kbd></div></div></div><div class="flex items-center gap-space-md shrink-0"><div class="flex items-center bg-surface-container p-0.5 rounded border border-outline-variant"><button class="px-2.5 py-1 text-label-sm font-label-sm rounded bg-primary-container text-on-primary shadow-none" type="button">Speaker View</button><button class="px-2.5 py-1 text-label-sm font-label-sm rounded text-secondary hover:text-on-surface transition-colors" type="button">Staff View</button></div><div class="h-5 w-px bg-outline-variant"></div><button class="px-2 py-1 text-label-sm font-label-sm text-on-surface-variant hover:text-primary-container border border-outline-variant rounded bg-surface transition-colors" type="button">English | اردو</button><div class="relative"><button class="p-1.5 text-secondary hover:text-on-surface hover:bg-surface rounded transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 h-4 w-4 bg-primary-container text-on-primary font-label-sm text-[10px] rounded-full flex items-center justify-center">3</span></button></div><div class="h-5 w-px bg-outline-variant"></div><div class="flex items-center gap-2.5 pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md font-bold text-on-surface truncate">Sardar Ayaz Sadiq</span><span class="font-label-sm text-[10px] text-secondary truncate">Honorable Speaker • Chamber</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Document Header Context Bar -->
+<div class="bg-surface-container-lowest px-space-lg py-space-md shadow-sm">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-sm">
+<!-- Breadcrumb navigation & file registration index -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm text-label-sm font-label-sm text-secondary">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="hover:text-primary transition-colors cursor-pointer">Files &amp; Documents</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Legislation &amp; Finance</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="font-mono text-primary font-semibold tracking-wide">NA/SPK/2024/0984-L</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-tertiary-container text-tertiary-fixed px-2 py-0.5 rounded text-label-sm font-bold uppercase tracking-wider">
+            RESTRICTED / سرکاری
+          </span>
+<span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-label-sm flex items-center gap-1 font-medium">
+<span class="h-1.5 w-1.5 rounded-full bg-on-tertiary-container"></span>
+            Priority: Immediate / فوری
+          </span>
+</div>
+</div>
+<!-- Institutional Title & Official Urdu Transcript Header -->
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md pt-1">
+<div class="space-y-1 max-w-4xl min-w-0">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight font-bold">
+            Sanction of Technical Supplementary Grant &amp; Sovereign Equipment Upgrade for Hansard Reporting System
+          </h1>
+<p class="font-headline-sm text-headline-sm text-secondary font-medium leading-relaxed font-['Noto_Nastaliq_Urdu']" dir="rtl">
+            قومی اسمبلی ہنسارڈ رپورٹنگ نظام کی تکنیکی اپ گریڈیشن اور ضمنی گرانٹ کی منظوری
+          </p>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-body-sm font-body-sm text-secondary pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-container">account_balance</span>
+              Initiated by: <strong class="text-on-surface font-semibold">Joint Secretary (Legislation)</strong>
+</span>
+<span class="">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-container">calendar_today</span>
+              Reference Date: <strong class="text-on-surface font-semibold">23 Oct 2024</strong>
+</span>
+<span class="">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-container">encrypted</span>
+              Secretariat Dispatch Ref: <span class="font-mono text-xs">NAS-LEG-0984-24</span>
+</span>
+</div>
+</div>
+<!-- Administrative Utility Button Group -->
+<div class="flex items-center flex-wrap gap-2 shrink-0 self-start">
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface text-label-md font-label-md px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span class="">Print Note Sheet</span>
+</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface text-label-md font-label-md px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="">Export Bundle</span>
+</button>
+<button class="bg-surface-container-low hover:bg-surface-container text-on-surface text-label-md font-label-md px-3 py-1.5 rounded flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">forward_to_inbox</span>
+<span class="">Share with Secy NA</span>
+</button>
+<button class="bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md px-3.5 py-1.5 rounded flex items-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">rate_review</span>
+<span class="">Draft Outgoing Letter</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Workspace Canvas -->
+<div class="max-w-7xl mx-auto w-full px-space-lg py-space-md flex flex-col gap-space-lg">
+<!-- Dual-Pane Working Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT PANE: Official Secretariat Note Sheet (Source Scan View) -->
+<section class="lg:col-span-6 bg-surface-container-lowest rounded-lg p-space-md shadow-sm flex flex-col min-w-0">
+<!-- Document Action Toolbar -->
+<div class="flex items-center justify-between bg-surface-container-low p-2 rounded mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">feed</span>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold">Official Note Sheet (دفتری نوٹ شیٹ)</span>
+<span class="text-[10px] text-secondary font-mono tracking-tight">SEC-VER: 2024.10.23-V3</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-secondary hover:text-on-surface" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]">zoom_out</span>
+</button>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 bg-surface-container-lowest rounded font-mono text-on-surface">100%</span>
+<button class="p-1 hover:bg-surface-container rounded text-secondary hover:text-on-surface" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<div class="h-4 w-px bg-secondary-fixed-dim mx-1"></div>
+<span class="text-label-sm font-label-sm text-secondary px-1">Page 3 of 8</span>
+<button class="p-1 hover:bg-surface-container rounded text-secondary hover:text-on-surface" title="Next Page">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-secondary hover:text-on-surface" title="Download Original Signed Scan">
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+</button>
+</div>
+</div>
+<!-- High-fidelity Note Sheet Simulation -->
+<div class="relative bg-surface rounded p-space-lg text-on-surface font-serif shadow-inner">
+<!-- Institutional Watermark Background Impression -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
+<svg class="w-72 h-72 text-primary" fill="currentColor" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="42" stroke="currentColor" stroke-width="4"></circle>
+<path d="M50 15 L50 85 M15 50 L85 50 M25 25 L75 75 M25 75 L75 25" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+<!-- Official Secretariat Header -->
+<div class="relative text-center pb-space-sm mb-space-sm">
+<p class="font-label-sm text-label-sm tracking-widest uppercase text-secondary font-sans font-semibold">Government of Pakistan</p>
+<p class="font-headline-sm text-headline-sm text-primary font-bold font-sans">National Assembly Secretariat</p>
+<p class="font-body-sm text-body-sm text-secondary font-sans">Legislation &amp; Finance Wing (Budget Branch)</p>
+<div class="flex items-center justify-between pt-2 text-label-sm font-label-sm text-secondary font-sans">
+<span class="">F. No. 14(3)/2024-Legis.</span>
+<span class="">Islamabad, the 23rd October, 2024</span>
+</div>
+</div>
+<!-- Note Content Paragraphs -->
+<div class="relative space-y-space-md text-body-sm font-body-sm text-on-surface leading-relaxed font-sans">
+<div class="bg-surface-container-lowest p-2.5 rounded">
+<strong class="font-label-md text-label-md text-primary uppercase block mb-1">Subject: Proposal for modernizing audio-visual recording, Hansard verbatim transcription, and AI-enabled speech translation in Hall of the Assembly.</strong>
+</div>
+<p class="text-justify">
+<strong class="font-mono text-xs text-secondary mr-1">Para 12.</strong>
+              Reference directions issued on 14th August 2024 during the inter-wing strategic modernization committee. The existing analogue audio recording consoles and Hansard shorthand capture infrastructure, installed under the 13th Assembly tenure in 2011, have exceeded their operational lifespan. Frequent technical lags and non-availability of OEM micro-components require an immediate comprehensive modernization.
+            </p>
+<p class="text-justify">
+<strong class="font-mono text-xs text-secondary mr-1">Para 13.</strong>
+              The Joint Parliamentary IT Board along with the Directorate General of Media &amp; Communications have finalized the revised specifications for multi-channel digital audio capture, real-time AI assistive transcripts in bilingual format (English and Urdu), and redundancy archiving within the National Assembly private cloud servers.
+            </p>
+<p class="text-justify">
+<strong class="font-mono text-xs text-secondary mr-1">Para 14.</strong>
+              The Finance Division has officially concurred via U.O. No. 412-FD/Exp-II/2024 dated 19-10-2024 for re-appropriation of PKR 48,200,000/- (Forty-Eight Million Two Hundred Thousand Pakistani Rupees) from Demand No. 008 (National Assembly), Object Code "A03970 - Others" to "A09200 - Purchase of Machinery &amp; Technical Equipment". Consequently, no net additional budgetary allocation will be solicited from the federal consolidated fund.
+            </p>
+<p class="text-justify">
+<strong class="font-mono text-xs text-secondary mr-1">Para 15.</strong>
+              Procurement shall strictly adhere to Rule 42(c) of the Public Procurement Regulatory Authority (PPRA) Rules 2004, through competitive open tendering with sovereign vendor evaluation benchmarks vetted by the Special Evaluation Panel.
+            </p>
+<!-- Formal Closing & Pre-Signature Paragraph -->
+<div class="bg-primary/5 p-space-sm rounded">
+<p class="font-semibold text-primary">
+                Para 16. Submitted for the gracious approval of the Honorable Speaker, National Assembly of Pakistan under Rule 19 of the National Assembly Rules of Procedure &amp; Conduct of Business, 2007.
+              </p>
+</div>
+<!-- Authentic Departmental Signatures & Minute Trail -->
+<div class="pt-space-md grid grid-cols-2 gap-space-md">
+<div class="bg-surface-container-lowest p-2.5 rounded flex flex-col justify-between h-28">
+<span class="font-mono text-[10px] text-secondary tracking-widest uppercase">Verified &amp; Initials</span>
+<div>
+<div class="h-6 w-24 bg-primary/10 rounded mb-1 flex items-center justify-center font-serif italic text-xs text-primary font-bold">M. Arshad (DS-B)</div>
+<p class="text-label-sm font-label-sm text-on-surface font-bold leading-tight">Muhammad Arshad</p>
+<p class="text-[10px] text-secondary leading-tight">Deputy Secretary (Budget) • 21-10-2024</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded flex flex-col justify-between h-28">
+<span class="font-mono text-[10px] text-secondary tracking-widest uppercase">Concurred</span>
+<div>
+<div class="h-6 w-28 bg-primary/10 rounded mb-1 flex items-center justify-center font-serif italic text-xs text-primary font-bold">T. Mahmood (Addl-Sec)</div>
+<p class="text-label-sm font-label-sm text-on-surface font-bold leading-tight">Tariq Mahmood</p>
+<p class="text-[10px] text-secondary leading-tight">Additional Secretary (Legis) • 22-10-2024</p>
+</div>
+</div>
+</div>
+<!-- Secretary NA Elevation Block -->
+<div class="bg-surface-container-lowest p-space-md rounded flex items-start justify-between gap-space-md">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Recommendation of Secretary</span>
+<p class="text-body-sm font-body-sm text-on-surface italic">
+                  "The proposal is in procedural order, fully funded via intra-budget re-appropriation, and urgently necessitated for unhindered Hansard recording in the upcoming winter session. Recommended for approval."
+                </p>
+<div class="pt-2">
+<p class="text-label-md font-label-md text-primary font-bold">Tahir Hussain</p>
+<p class="text-label-sm font-label-sm text-secondary">Secretary, National Assembly of Pakistan</p>
+<p class="font-mono text-[11px] text-secondary">Hash: c7f932e9-gov-pk • 23 Oct 2024 11:42 PKT</p>
+</div>
+</div>
+<div class="bg-primary-fixed/20 p-2 rounded shrink-0 flex flex-col items-center justify-center text-primary text-center">
+<span class="material-symbols-outlined text-[28px]">verified</span>
+<span class="font-mono text-[9px] font-bold uppercase mt-0.5">GovPK Valid</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT PANE: AI-Generated Legislative Brief & Analytical Insights -->
+<section class="lg:col-span-6 flex flex-col gap-space-md min-w-0">
+<!-- AI Executive Brief Card -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low p-2 rounded">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+</div>
+<div>
+<h2 class="text-label-md font-label-md text-on-surface font-bold uppercase tracking-wider">AI Executive Brief &amp; Analysis</h2>
+<span class="text-[11px] text-secondary">مصنوعی ذہانت کا دفتری خلاصہ و قانونی جائزہ</span>
+</div>
+</div>
+<span class="bg-primary/10 text-primary text-label-sm font-label-sm px-2 py-0.5 rounded font-mono font-medium">Model: NA-GovLLM v2.4</span>
+</div>
+<!-- Key Facts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mb-space-md">
+<div class="bg-surface p-space-sm rounded">
+<span class="text-label-sm font-label-sm text-secondary uppercase block mb-1">Financial Commitment</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">PKR 48.20 M</span>
+<span class="text-[11px] text-secondary block mt-0.5">Re-appropriated</span>
+</div>
+<div class="bg-surface p-space-sm rounded">
+<span class="text-label-sm font-label-sm text-secondary uppercase block mb-1">Statutory Compliance</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                PPRA 42(c)
+              </span>
+<span class="text-[11px] text-secondary block mt-0.5">Open Bidding Mandated</span>
+</div>
+<div class="bg-surface p-space-sm rounded">
+<span class="text-label-sm font-label-sm text-secondary uppercase block mb-1">Fiscal Impact Score</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Zero Net Burden</span>
+<span class="text-[11px] text-secondary block mt-0.5">FY 2024-25 Ceiling</span>
+</div>
+</div>
+<!-- Synthesized Core Points -->
+<div class="space-y-space-sm text-body-sm font-body-sm text-on-surface">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<p class=""><strong>Legislative Necessity:</strong> Guarantees unhindered verbatim recording of speeches, questions, and bill debates for the 16th National Assembly, eliminating chronic analogue hardware breakdowns.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<p class=""><strong>Bilingual Digital Transition:</strong> Integrates automatic Urdu and English Hansard publishing to the digital assembly portal within 180 minutes of sitting adjournments.</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<p class=""><strong>Fiscal Sanity Verified:</strong> Concurred by the Finance Division without expanding the overall parliamentary allocation; funds drawn from unutilized sub-heads.</p>
+</div>
+</div>
+</div>
+<!-- Precedent & Risk Assessment -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center gap-2 pb-1">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]">history_edu</span>
+<h3 class="text-label-md font-label-md text-on-surface font-bold uppercase tracking-wider">AI Precedent &amp; Audit Risk Assessment</h3>
+</div>
+<div class="bg-surface p-space-sm rounded space-y-2">
+<div class="flex items-start justify-between gap-2">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Identified Historic Precedent</span>
+<p class="font-body-sm text-body-sm font-bold text-primary">File #NA-2016-ADM-042 (14th Assembly)</p>
+<p class="text-body-sm font-body-sm text-secondary">
+                  A parallel supplementary grant of PKR 34.5M was sanctioned by the Speaker for simultaneous interpretation booths. Auditor General certified compliance in 2017 settlement.
+                </p>
+</div>
+<span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded text-label-sm font-mono shrink-0">94% Match</span>
+</div>
+</div>
+<div class="bg-tertiary-fixed/30 p-space-sm rounded">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-[20px] shrink-0 mt-0.5">balance</span>
+<div>
+<span class="font-label-sm text-label-sm font-bold text-on-tertiary-fixed">Synthesized AI Recommendation</span>
+<p class="text-body-sm font-body-sm text-on-surface leading-snug pt-0.5">
+                  The matter may be <strong>Approved as Proposed</strong>, with an administrative stipulation that an independent quarterly progress report and pre-audit certification by the AGPR be submitted within 60 days of vendor commissioning.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Parliamentary Records & Prior Decisions -->
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between pb-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">dataset</span>
+<h3 class="text-label-md font-label-md text-on-surface font-bold uppercase tracking-wider">Related Prior Parliamentary Records (متعلقہ سابقہ ریکارڈ)</h3>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-mono">2 Linked Items</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<!-- Linked record 1 -->
+<a class="bg-surface hover:bg-surface-container-low p-space-sm rounded transition-colors block group" href="#">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-secondary font-mono mb-1">
+<span class="">File #NA-2023-REC-11</span>
+<span class="text-primary font-bold">Phase I</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">
+                Hansard Digital Archiving Phase I
+              </p>
+<p class="text-body-sm text-secondary line-clamp-2 mt-0.5">
+                Speaker approved conversion of legacy physical records 1947–2000 into OCR searchable format.
+              </p>
+<div class="mt-2 flex items-center gap-1 text-[11px] text-primary">
+<span class="">Approved: 12 Nov 2023</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</a>
+<!-- Linked record 2 -->
+<a class="bg-surface hover:bg-surface-container-low p-space-sm rounded transition-colors block group" href="#">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-secondary font-mono mb-1">
+<span class="">Dir #DIR-2024-031</span>
+<span class="text-primary-container font-bold">Executed</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold group-hover:text-primary transition-colors line-clamp-1">
+                Mandate for Real-Time Bilingual Transcription
+              </p>
+<p class="text-body-sm text-secondary line-clamp-2 mt-0.5">
+                Chamber ruling directing Secretariat to deploy speech-to-text engines for Hansard staff.
+              </p>
+<div class="mt-2 flex items-center gap-1 text-primary-container">
+<span class="">Completed: 05 Jun 2024</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+</div>
+<!-- PROMINENT SPEAKER'S DECISION & ORDER BOX (حکم جناب اسپیکر) -->
+<section class="bg-surface-container-lowest rounded-lg p-space-lg shadow-md bg-gradient-to-b from-surface-container-lowest via-surface-container-lowest to-surface-container-low/40">
+<!-- Box Header with Sovereign Identification -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md mb-space-md bg-surface-container-low p-space-md rounded">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold uppercase tracking-wide">
+                Speaker's Decision &amp; Sovereign Directive Box
+              </h2>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm px-2 py-0.5 rounded uppercase tracking-wider font-semibold">
+                Executive Action
+              </span>
+</div>
+<p class="font-headline-sm text-headline-sm text-secondary font-['Noto_Nastaliq_Urdu'] pt-0.5" dir="rtl">
+              حکم جناب اسپیکر، قومی اسمبلی پاکستان
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+<span class="flex items-center gap-1 text-primary-container font-semibold">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+            Secure Legislative Authority Protocol
+          </span>
+</div>
+</div>
+<!-- Interactive Decision Selector (Radio Group) -->
+<div class="space-y-space-sm mb-space-md">
+<label class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider block">
+          Select Executive Action / انتخاب حکم
+        </label>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-2">
+<!-- Option 1: Approved as Proposed (Active) -->
+<label class="flex flex-col p-2.5 rounded cursor-pointer bg-primary-container text-on-primary transition-all shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<input checked="" class="accent-primary-fixed" name="speaker_order" type="radio" value="approved_as_proposed">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">check_circle</span>
+</div>
+<span class="text-label-md font-label-md font-bold leading-tight">Approved as Proposed</span>
+<span class="text-[12px] opacity-90 font-['Noto_Nastaliq_Urdu'] pt-1" dir="rtl">منظور ہے جیسا کہ پیش کیا گیا</span>
+</label>
+<!-- Option 2: Approved with Modifications -->
+<label class="flex flex-col p-2.5 rounded cursor-pointer bg-surface hover:bg-surface-container transition-all text-on-surface">
+<div class="flex items-center justify-between mb-1">
+<input class="accent-primary" name="speaker_order" type="radio" value="approved_with_modifications">
+<span class="material-symbols-outlined text-[16px] text-secondary">edit_note</span>
+</div>
+<span class="text-label-md font-label-md font-semibold leading-tight">Approved with Mods</span>
+<span class="text-[12px] text-secondary font-['Noto_Nastaliq_Urdu'] pt-1" dir="rtl">مشروط منظوری</span>
+</label>
+<!-- Option 3: Returned with Observations -->
+<label class="flex flex-col p-2.5 rounded cursor-pointer bg-surface hover:bg-surface-container transition-all text-on-surface">
+<div class="flex items-center justify-between mb-1">
+<input class="accent-primary" name="speaker_order" type="radio" value="returned_with_observations">
+<span class="material-symbols-outlined text-[16px] text-secondary">replay</span>
+</div>
+<span class="text-label-md font-label-md font-semibold leading-tight">Returned with Obs.</span>
+<span class="text-[12px] text-secondary font-['Noto_Nastaliq_Urdu'] pt-1" dir="rtl">مشاہدات کے ساتھ واپس</span>
+</label>
+<!-- Option 4: Directions for Standing Committee -->
+<label class="flex flex-col p-2.5 rounded cursor-pointer bg-surface hover:bg-surface-container transition-all text-on-surface">
+<div class="flex items-center justify-between mb-1">
+<input class="accent-primary" name="speaker_order" type="radio" value="committee_review">
+<span class="material-symbols-outlined text-[16px] text-secondary">groups</span>
+</div>
+<span class="text-label-md font-label-md font-semibold leading-tight">Refer to Committee</span>
+<span class="text-[12px] text-secondary font-['Noto_Nastaliq_Urdu'] pt-1" dir="rtl">قائمہ کمیٹی کو تفویض</span>
+</label>
+<!-- Option 5: Rejected -->
+<label class="flex flex-col p-2.5 rounded cursor-pointer bg-surface hover:bg-surface-container transition-all text-on-surface">
+<div class="flex items-center justify-between mb-1">
+<input class="accent-primary" name="speaker_order" type="radio" value="rejected">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+</div>
+<span class="text-label-md font-label-md font-semibold leading-tight">Rejected / File Closed</span>
+<span class="text-[12px] text-secondary font-['Noto_Nastaliq_Urdu'] pt-1" dir="rtl">نامنظور و داخل دفتر</span>
+</label>
+</div>
+</div>
+<!-- Directive Textarea & Speech-to-Text Audio Console -->
+<div class="space-y-space-sm mb-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<label class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider" for="speaker_notes">
+            Official Minute &amp; Speaker Directives for Note Sheet (تفصیلی حکم یا ہدایات)
+          </label>
+<!-- AI Template Presets -->
+<div class="flex items-center gap-1">
+<span class="text-body-sm font-body-sm text-secondary text-xs">Insert AI Draft Minute:</span>
+<button class="px-2 py-0.5 rounded bg-surface text-primary text-label-sm font-label-sm hover:bg-surface-container transition-colors" id="btn-insert-standard" type="button">
+              Standard Approval
+            </button>
+<button class="px-2 py-0.5 rounded bg-surface text-primary text-label-sm font-label-sm hover:bg-surface-container transition-colors" id="btn-insert-audit" type="button">
+              Subject to AGPR Audit
+            </button>
+</div>
+</div>
+<div class="relative">
+<textarea class="w-full bg-surface-container-low text-on-surface text-body-md font-body-md p-space-md rounded placeholder:text-secondary focus:bg-surface-container-lowest focus:outline-none transition-all resize-y" id="speaker_notes" placeholder="Approved as proposed. Subject to strict compliance with PPRA Rules 2004 and quarterly submission of milestone audits to Speaker Chamber. / اپنے احکامات یا ہدایات تحریر فرمائیں..." rows="4">Approved as proposed. The Joint Secretary (Legislation) and Director General (IT) are directed to ensure complete operational readiness of the modern Hansard recording apparatus prior to the commencement of the upcoming winter parliamentary session. Strict adherence to PPRA Rule 42(c) shall be observed, and a progress appraisal submitted to the Speaker Chamber within 45 days.</textarea>
+</div>
+<!-- Voice-to-Text Dictation Strip -->
+<div class="bg-surface p-space-sm rounded flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<button class="text-on-primary hover:bg-primary-container px-3 py-1.5 rounded flex items-center gap-2 text-label-md font-label-md shrink-0 transition-colors shadow-sm bg-primary" id="dictate-toggle" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+<span id="dictate-label" class="">Start Urdu/English Dictation</span>
+</button>
+<!-- Real-time SVG Audio Waveform Indicator -->
+<div class="flex items-center gap-1 px-2 overflow-hidden h-6">
+<svg class="w-48 h-5 text-primary opacity-80" fill="currentColor" viewBox="0 0 160 20">
+<rect height="4" rx="1.5" width="3" x="0" y="8"></rect>
+<rect height="10" rx="1.5" width="3" x="8" y="5"></rect>
+<rect height="16" rx="1.5" width="3" x="16" y="2"></rect>
+<rect height="8" rx="1.5" width="3" x="24" y="6"></rect>
+<rect height="14" rx="1.5" width="3" x="32" y="3"></rect>
+<rect height="6" rx="1.5" width="3" x="40" y="7"></rect>
+<rect height="18" rx="1.5" width="3" x="48" y="1"></rect>
+<rect height="12" rx="1.5" width="3" x="56" y="4"></rect>
+<rect height="4" rx="1.5" width="3" x="64" y="8"></rect>
+<rect height="16" rx="1.5" width="3" x="72" y="2"></rect>
+<rect height="10" rx="1.5" width="3" x="80" y="5"></rect>
+<rect height="14" rx="1.5" width="3" x="88" y="3"></rect>
+<rect height="6" rx="1.5" width="3" x="96" y="7"></rect>
+<rect height="16" rx="1.5" width="3" x="104" y="2"></rect>
+<rect height="8" rx="1.5" width="3" x="112" y="6"></rect>
+<rect height="12" rx="1.5" width="3" x="120" y="4"></rect>
+<rect height="4" rx="1.5" width="3" x="128" y="8"></rect>
+<rect height="10" rx="1.5" width="3" x="136" y="5"></rect>
+<rect height="16" rx="1.5" width="3" x="144" y="2"></rect>
+<rect height="6" rx="1.5" width="3" x="152" y="7"></rect>
+</svg>
+<span class="text-label-sm font-label-sm text-secondary font-mono text-[11px] shrink-0">Bilingual Speech-to-Text Ready</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end md:self-auto text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[16px]">translate</span>
+<span class="">Urdu Nastaliq transcription active</span>
+</div>
+</div>
+</div>
+<!-- Action Verification & Issue Bar -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Cryptographic Digital Stamp Confirmation Checkbox -->
+<label class="flex items-start gap-3 cursor-pointer select-none max-w-xl">
+<input checked="" class="mt-1 h-4 w-4 rounded accent-primary text-on-primary" id="seal_sign_checkbox" type="checkbox">
+<div class="flex flex-col">
+<span class="text-label-md font-label-md font-bold text-on-surface">
+              Affix Cryptographic State Seal &amp; Certified Digital Signature
+            </span>
+<span class="text-body-sm font-body-sm text-secondary">
+              Sardar Ayaz Sadiq, Honorable Speaker of the National Assembly of Pakistan (RSA-4096 / Sovereign Root CA)
+            </span>
+</div>
+</label>
+<!-- Command Execution Action Buttons -->
+<div class="flex items-center flex-wrap gap-2 shrink-0">
+<button class="bg-surface hover:bg-surface-container text-on-surface text-label-md font-label-md px-3.5 py-2.5 rounded transition-colors" type="button">
+            Save Draft Order
+          </button>
+<button class="bg-surface-container-high hover:bg-surface-container text-primary text-label-md font-label-md px-3.5 py-2.5 rounded flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">outgoing_mail</span>
+<span class="">Generate Outgoing Dispatch (AI مسودہ)</span>
+</button>
+<button class="bg-primary hover:bg-primary-container text-on-primary text-label-md font-label-md px-5 py-2.5 rounded flex items-center gap-2 font-bold shadow-md transition-all active:scale-[0.99]" id="btn-issue-directive" type="button">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">verified_user</span>
+<span class="">Affix Signature &amp; Issue Directive (دستخط فرمائیں اور حکم جاری کریں)</span>
+</button>
+</div>
+</div>
+<!-- Confirmation Toast Feedback Element (Hidden by default) -->
+<div class="hidden mt-space-md p-space-md bg-primary-container text-on-primary rounded flex items-center justify-between transition-all" id="confirmation-banner">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed text-[28px]">task_alt</span>
+<div>
+<p class="font-headline-sm text-headline-sm font-bold">Directive Promulgated Successfully</p>
+<p class="text-body-sm font-body-sm text-on-primary-container">
+              Official Note Sheet updated with Speaker's signed minute. Notification transmitted to Secretary NA and Joint Secretary (Legislation).
+            </p>
+</div>
+</div>
+<span class="font-mono text-xs bg-primary px-3 py-1.5 rounded text-tertiary-fixed font-semibold">TOKEN: 2024-SPK-DIR-0984</span>
+</div>
+</section>
+<!-- Institutional Workflow Audit Trail & Verification Chain (سابقہ کارروائی اور تصدیقی ریکارڈ) -->
+<section class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm mb-space-lg">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low p-2 rounded">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">policy</span>
+<h3 class="text-label-md font-label-md text-on-surface font-bold uppercase tracking-wider">
+            Institutional Audit Trail &amp; Verification Chain (سابقہ کارروائی اور تصدیقی ریکارڈ)
+          </h3>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-mono">Immutable GovNet Ledger</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md pt-2">
+<!-- Step 1 -->
+<div class="bg-surface p-space-sm rounded space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Initiation (تخلیق)</span>
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+</div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Budget Branch (DS-B)</p>
+<p class="text-[11px] text-secondary">Initiated note &amp; attached PPRA comparative quotation sheets.</p>
+<p class="font-mono text-[10px] text-secondary pt-1">21 Oct 2024 • 14:15 PKT</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface p-space-sm rounded space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Vetting (قانونی جانچ)</span>
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+</div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Addl. Secretary (Legis)</p>
+<p class="text-[11px] text-secondary">Certified rule compliance with Rule 19 of Rules of Procedure.</p>
+<p class="font-mono text-[10px] text-secondary pt-1">22 Oct 2024 • 10:30 PKT</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface p-space-sm rounded space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">Submission (پیشکش)</span>
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+</div>
+<p class="font-label-md text-label-md font-bold text-on-surface">Secretary National Assembly</p>
+<p class="text-[11px] text-secondary">Formally endorsed for gracious approval of Honorable Speaker.</p>
+<p class="font-mono text-[10px] text-secondary pt-1">23 Oct 2024 • 11:42 PKT</p>
+</div>
+<!-- Step 4 -->
+<div class="bg-primary/5 p-space-sm rounded space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold">Final Order (حتمی حکم)</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[16px]">pending_actions</span>
+</div>
+<p class="font-label-md text-label-md font-bold text-primary">Office of the Speaker</p>
+<p class="text-[11px] text-secondary">Chamber review active; awaiting final sovereign digital signing.</p>
+<p class="font-mono text-[10px] text-primary font-semibold pt-1">In Session Now</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  // Quick Minute Insertion Micro-interaction
+  const textarea = document.getElementById('speaker_notes');
+  const btnStandard = document.getElementById('btn-insert-standard');
+  const btnAudit = document.getElementById('btn-insert-audit');
+  const btnIssue = document.getElementById('btn-issue-directive');
+  const confirmationBanner = document.getElementById('confirmation-banner');
+  const dictateToggle = document.getElementById('dictate-toggle');
+  const dictateLabel = document.getElementById('dictate-label');
+
+  if (btnStandard && textarea) {
+    btnStandard.addEventListener('click', () => {
+      textarea.value = "Approved as proposed. The proposal is sanctioned under Rule 19 of the National Assembly Rules of Procedure & Conduct of Business, 2007. Relevant wing to notify all concerned.";
+      textarea.focus();
+    });
+  }
+
+  if (btnAudit && textarea) {
+    btnAudit.addEventListener('click', () => {
+      textarea.value = "Approved as proposed, subject to strict adherence to PPRA Rule 42(c). The Auditor General of Pakistan (AGPR) shall conduct concurrent pre-audit verification, and an executive progress appraisal shall be placed before the Speaker within 60 days.";
+      textarea.focus();
+    });
+  }
+
+  // Voice Dictation Simulation Toggle
+  let isDictating = false;
+  if (dictateToggle && dictateLabel) {
+    dictateToggle.addEventListener('click', () => {
+      isDictating = !isDictating;
+      if (isDictating) {
+        dictateToggle.classList.remove('bg-primary');
+        dictateToggle.classList.add('bg-error');
+        dictateLabel.textContent = "Listening... بولیں";
+      } else {
+        dictateToggle.classList.remove('bg-error');
+        dictateToggle.classList.add('bg-primary');
+        dictateLabel.textContent = "Start Urdu/English Dictation";
+      }
+    });
+  }
+
+  // Issue Directive Animation & Feedback
+  if (btnIssue && confirmationBanner) {
+    btnIssue.addEventListener('click', () => {
+      btnIssue.disabled = true;
+      btnIssue.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span> Processing Cryptographic Seal...';
+      
+      setTimeout(() => {
+        btnIssue.innerHTML = '<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">verified</span> Signed &amp; Dispatched';
+        confirmationBanner.classList.remove('hidden');
+        confirmationBanner.scrollIntoView({ behavior: 'smooth' });
+      }, 900);
+    });
+  }
+</script></main></div>
+
+<div class="fixed right-6 bottom-6 z-50 flex flex-col items-end gap-2" id="chamber-ai-widget"><div class="hidden md:flex items-center gap-1.5 bg-surface-container-lowest text-on-surface border border-outline-variant px-3 py-1 rounded-full shadow-md text-label-sm font-label-sm tracking-wide"><span class="material-symbols-outlined text-[14px] text-tertiary-fixed-variant">auto_awesome</span><span class="text-secondary">Rules &amp; Precedent Advisor</span><span class="text-outline-variant">•</span><kbd class="font-mono text-[10px] text-primary bg-surface-container px-1.5 py-0.5 rounded font-semibold">⌘J</kbd></div><button type="button" class="group flex items-center gap-3 bg-primary-container text-on-primary hover:bg-primary border border-on-tertiary-container/40 pl-3 pr-4 py-2.5 rounded-full shadow-md transition-all active:scale-[0.99] cursor-pointer" aria-label="Ask Speaker AI Assistant"><div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-primary text-tertiary-fixed border border-tertiary-fixed/30"><span class="material-symbols-outlined text-[20px]">psychology</span><span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5"><span class="animate-pulse absolute inline-flex h-full w-full rounded-full bg-primary-fixed opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-fixed"></span></span></div><div class="flex flex-col text-left"><div class="flex items-center gap-1.5 leading-tight"><span class="font-label-md text-label-md font-bold tracking-wide text-on-primary">Ask Speaker AI</span><span class="text-[10px] uppercase font-mono tracking-widest px-1.5 py-0.5 rounded bg-primary text-tertiary-fixed font-semibold">Active</span></div><span class="font-['Noto_Nastaliq_Urdu'] text-[11px] text-tertiary-fixed-dim leading-tight pt-0.5" dir="rtl">معاون اسپیکر و مشیر قانونی</span></div><span class="material-symbols-outlined text-[18px] text-tertiary-fixed-dim group-hover:translate-x-0.5 transition-transform ml-0.5">chat_spark</span></button></div></body></html>

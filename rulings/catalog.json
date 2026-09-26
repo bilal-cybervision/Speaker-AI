@@ -1,0 +1,53 @@
+{
+  "id_scheme": "NA-ROC-{years}-p{pdf page}-r{printed ruling number}. Open source.pdf at pdf_page_start and find that ruling number to check the model against the book.",
+  "record_fields": [
+    "id",
+    "sequence",
+    "volume_id",
+    "ruling_no",
+    "subject",
+    "headnote",
+    "decision",
+    "full_text",
+    "citation.debate_volume",
+    "citation.debate_date_raw",
+    "citation.debate_pages",
+    "citation.citation_raw",
+    "source.url",
+    "source.pdf",
+    "source.pdf_page_start",
+    "source.pdf_page_end"
+  ],
+  "volumes": [
+    {
+      "volume_id": "rulings-1999-2017",
+      "title": "Rulings of the Chair, 1999-2017",
+      "source_url": "https://www.na.gov.pk/uploads/documents/Rulings-of-the-Chair-1999-2017.pdf",
+      "pdf": "data/rulings/sources/rulings-1999-2017.pdf",
+      "records_file": "data/rulings/rulings-1999-2017.jsonl",
+      "rulings": 234,
+      "printed_numbers": "1 to 234, none missing",
+      "with_debate_citation": 233,
+      "note": "Ruling 234 (withdrawal of a name from a privilege notice, PDF page 248) is printed without a debate volume or page. The decision quote is still in the record."
+    },
+    {
+      "volume_id": "rulings-1947-1997",
+      "title": "Rulings of the Chair, 1947-1997",
+      "source_url": "https://www.na.gov.pk/uploads/documents/Ruling-Web.pdf",
+      "pdf": "data/rulings/sources/rulings-1947-1997.pdf",
+      "records_file": "data/rulings/rulings-1947-1997.jsonl",
+      "rulings": 873,
+      "with_citation_string": 867,
+      "with_parsed_date": 441,
+      "without_citation": [
+        "NA-ROC-1947-1997-p0113-r0155",
+        "NA-ROC-1947-1997-p0395-r0594",
+        "NA-ROC-1947-1997-p0473-r0698",
+        "NA-ROC-1947-1997-p0480-r0111",
+        "NA-ROC-1947-1997-p0480-r0112",
+        "NA-ROC-1947-1997-p0624-r0923"
+      ],
+      "note": "This PDF is a scan. Printed ruling numbers are not one clean sequence: some sections restart, and some digits are misread. Use the id page number to verify. citation_raw is the debate line as printed, even when the date could not be normalized."
+    }
+  ]
+}
