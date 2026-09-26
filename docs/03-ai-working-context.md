@@ -1,6 +1,6 @@
 # AI working context
 
-Read this before designing or coding the Speaker’s Office work. It is the memory of the decisions already made. Update it when a decision changes. Last updated 24 September 2026.
+Read this before designing or coding the Speaker’s Office work. It is the memory of the decisions already made. Update it when a decision changes. Last updated 26 September 2026.
 
 ## What this project is
 
@@ -64,6 +64,7 @@ Leave press releases, greeting cards, and the teleprompter. They are in the prot
 
 The Speaker’s Office platform is greenfield. Secretariat staff use NITB e-Office for some work, and NAS Smart Office is an internal effort. This proof of concept does not depend on their APIs.
 
+- The public Vercel site is the Vite frontend only. Sign-in and the sample files run in the browser from `frontend/src/demo.js`. That build does not call the API, the model, or the rulings archive. `npm run dev` on a machine still uses the backend on port 8787.
 - Demo and pilot on the Assembly’s internal network. An existing IP5 server may host the first demo.
 - No dedicated GPU today. Say so if a model needs one.
 - Assembly data, prompts, and model outputs stay inside an Assembly-controlled environment. No public AI service or external cloud without explicit authorization.
