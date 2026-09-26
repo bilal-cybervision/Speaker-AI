@@ -23,16 +23,8 @@ const PEOPLE = {
   secgen: { name: "Saeed Ahmad Maitla", title: "Secretary", initials: "SM", root: "Secretary" },
 };
 
-async function api(path, options = {}) {
-  if (import.meta.env.PROD) return demoRequest(path, options);
-  const res = await fetch(path, {
-    credentials: "same-origin",
-    headers: { "content-type": "application/json" },
-    ...options,
-  });
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.error || "Request failed");
-  return data;
+function api(path, options = {}) {
+  return demoRequest(path, options);
 }
 
 function toast(msg) {
@@ -214,7 +206,7 @@ function fileHeaderCard(item) {
   return `<div class="file-header-card"><div class="top-strip"><div class="file-no">FILE ${esc(item.id)}</div><h2>${esc(item.subject)}</h2></div>
     <div class="body">
       <div class="meta-row"><span class="k">Type</span><span class="v"><span class="pill pill-starred">${esc(kindLabel(item))}</span></span></div>
-      <div class="meta-row"><span class="k">Paper</span><span class="v">${item.pdfUrl ? `<a href="${esc(item.pdfUrl)}" target="_blank" rel="noreferrer">${esc(item.pdfName || "Open PDF")}</a>` : item.hasPdf ? `<a href="/api/files/${esc(item.id)}/pdf" target="_blank" rel="noreferrer">${esc(item.pdfName || "Open PDF")}</a>` : "Sample text, no PDF"}</span></div>
+      <div class="meta-row"><span class="k">Paper</span><span class="v">${item.pdfUrl ? `<a href="${esc(item.pdfUrl)}" target="_blank" rel="noreferrer">${esc(item.pdfName || "Open PDF")}</a>` : "Sample text, no PDF"}</span></div>
       <div class="meta-row"><span class="k">Member</span><span class="v">${esc(item.memberName)}</span></div>
       <div class="meta-row"><span class="k">Addressed to</span><span class="v" style="max-width:200px;font-size:11px;">${esc(item.minister)}</span></div>
       <div class="meta-row"><span class="k">Received</span><span class="v">${esc(item.received)}</span></div>
@@ -488,14 +480,8 @@ function bind() {
     form.append("subject", $("newSubject").value);
     form.append("pdf", picked);
     let created;
-    if (import.meta.env.PROD) {
-      try { created = demoUpload(form); }
-      catch (err) { toast(err.message); return; }
-    } else {
-      const res = await fetch("/api/files", { method: "POST", body: form, credentials: "same-origin" });
-      created = await res.json();
-      if (!res.ok) { toast(created.error || "Could not register the file."); return; }
-    }
+    try { created = demoUpload(form); }
+    catch (err) { toast(err.message); return; }
     toast("PDF attached. Writing the note.");
     await refreshFiles();
     await openFile(created.file.id);
