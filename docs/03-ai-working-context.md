@@ -64,7 +64,7 @@ Leave press releases, greeting cards, and the teleprompter. They are in the prot
 
 The Speaker’s Office platform is greenfield. Secretariat staff use NITB e-Office for some work, and NAS Smart Office is an internal effort. This proof of concept does not depend on their APIs.
 
-- The office the Speaker sees runs entirely in the Vite frontend. Sign-in, the sample files, the notes, and every button live in the browser (`frontend/src/demo.js` and `frontend/src/main.js`). The pages do not call the API, the model, or the rulings archive, on your machine or on Vercel.
+- The office the Speaker sees runs entirely in the Vite frontend. The nine-module portal is that app: Staff View uses the Secretariat shell (Inter) and Speaker View uses the other shell (Public Sans and Noto Nastaliq Urdu). The switch is stored in the browser only. Sample records live in `frontend/src/portal/data/` and are drawn into the pages there. Nothing in that portal calls an API, a model, or the rulings archive, on your machine or on Vercel. The earlier question-file screen (`frontend/src/main.js`, `frontend/src/demo.js`) is not loaded by this build.
 - Demo and pilot on the Assembly’s internal network. An existing IP5 server may host the first demo.
 - No dedicated GPU today. Say so if a model needs one.
 - Assembly data, prompts, and model outputs stay inside an Assembly-controlled environment. No public AI service or external cloud without explicit authorization.

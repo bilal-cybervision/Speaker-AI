@@ -1,0 +1,6 @@
+export function mount() {
+  const el = document.createElement("script");
+  el.dataset.pageBehavior = "files";
+  el.textContent = "\r\n    queueMicrotask(() => {\r\n      const radioInputs = document.querySelectorAll('input[name=\"speaker_decision\"]');\r\n      const directiveBox = document.querySelector('textarea');\r\n      \r\n      const cannedTemplates = {\r\n        approve: \"Approved for placement on the Orders of the Day for Friday morning sitting with condition that Party Leaders be briefed at 09:30 AM in Speaker's Chamber.\",\r\n        return: \"Returned with observation: Clarification required on financial implications under Article 73 before consideration.\",\r\n        committee: \"Referred to Standing Committee on Law and Justice for examination and report within seven working days.\",\r\n        refer_house: \"Direct the Secretariat to place the matter directly before the House for general discussion under Rule 130.\"\r\n      };\r\n\r\n      radioInputs.forEach(radio => {\r\n        radio.addEventListener('change', (e) => {\r\n          if (cannedTemplates[e.target.value] && directiveBox) {\r\n            directiveBox.value = cannedTemplates[e.target.value];\r\n          }\r\n        });\r\n      });\r\n    });\r\n  ";
+  document.body.appendChild(el);
+}
