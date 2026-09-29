@@ -116,7 +116,7 @@ export const slots = {
   t45: "10:00 AM — 11:00 AM",
   t46: "Completed",
   t47: "\n                In-Chamber Briefing with Secretary National Assembly\n              ",
-  t48: "\n                Speaker Chamber • Agenda of upcoming 33rd Parliamentary Session &amp; Legislative Business.\n              ",
+  t48: "\n                Speaker Chamber • Agenda of the current session of the 16th National Assembly.\n              ",
   t49: "11:30 AM — 12:15 PM",
   t50: "Upcoming Next",
   t51: "\n                Bilateral Courtesy Call: H.E. British High Commissioner\n              ",

@@ -1,4 +1,4 @@
-const STORE = "speaker-office-demo";
+const STORE = "speaker-office-demo-v4";
 
 const USERS = [
   { email: "so.questions@na.gov.pk", password: "questions123", name: "Saima Malik", role: "officer" },
@@ -41,8 +41,72 @@ const NOTICE = `Will the Health Minister be pleased to state the total number of
 
 const NEXT = { js: "special", special: "secgen", secgen: "speaker" };
 
+const DIRECTIONS_STORE = "speaker-office-directions-v1";
+
 let session = null;
 let files = loadFiles();
+let directions = loadDirections();
+
+function dayOffset(days) {
+  const date = new Date();
+  date.setHours(17, 0, 0, 0);
+  date.setDate(date.getDate() + days);
+  return date.toISOString();
+}
+
+function seedDirections() {
+  return [
+    {
+      id: "D-2026-0412",
+      text: "Report why Secretaries of the Ministries were absent from the official gallery during Question Hour.",
+      owner: "Parliamentary Affairs Division",
+      due: dayOffset(-3),
+      status: "open",
+      source: "Chair, sitting of 22 September",
+      createdAt: dayOffset(-8),
+      reminders: 1,
+    },
+    {
+      id: "D-2026-0415",
+      text: "Share the revised seating plan for the joint sitting with both Whips.",
+      owner: "Legislation Branch",
+      due: dayOffset(1),
+      status: "open",
+      source: "Meeting with Chief Whip, 25 September",
+      createdAt: dayOffset(-3),
+      reminders: 0,
+    },
+    {
+      id: "D-2026-0409",
+      text: "Arrange a briefing on the Maldives delegation before the courtesy call.",
+      owner: "Protocol Branch",
+      due: dayOffset(-5),
+      status: "done",
+      source: "File LTR-2026-011",
+      createdAt: dayOffset(-12),
+      reminders: 0,
+      evidence: "Briefing held 23 September. Note placed on file.",
+    },
+  ];
+}
+
+function loadDirections() {
+  try {
+    const saved = sessionStorage.getItem(DIRECTIONS_STORE);
+    if (saved) return JSON.parse(saved);
+  } catch {
+    /* a fresh sample set is enough */
+  }
+  return seedDirections();
+}
+
+function saveDirections() {
+  try {
+    sessionStorage.setItem(DIRECTIONS_STORE, JSON.stringify(directions));
+  } catch {
+    /* the sample set still lives in this tab */
+  }
+}
 
 function loadFiles() {
   try {
@@ -80,6 +144,7 @@ function seedFiles() {
       language: "English",
       sample: true,
       body: NOTICE,
+      plainAsk: "How many Basic Health Units in NA-120 have no Medical Officer, how long each post has been vacant, and what the Ministry is doing to fill them. It also asks the Minister whether the present allocation of doctors is adequate.",
       opinionPhrase: "in the Minister's view, whether the current allocation of doctors is adequate",
       desk: "section_officer",
       note: null,
@@ -101,6 +166,7 @@ function seedFiles() {
       deadline: "25 September 2026",
       body: "Will the Minister for Federal Education state how many sanctioned teaching posts in federal schools in NA-54 are vacant, and for how many months each vacancy has lasted?",
       officerLine: "Submitted for the Hon. Speaker. The question asks for numbers only. Rule 78 is met. It may be admitted.",
+      recommend: "allow",
       note: {
         source: "rules-and-archive",
         summary: "The member asks only for the number of vacant teaching posts in federal schools in NA-54, and how long each vacancy has lasted.",
@@ -134,6 +200,7 @@ function seedFiles() {
       daysLeft: 1,
       body: "The member seeks leave to move adjournment of the House to discuss the overnight failure of electricity supply in Peshawar.",
       officerLine: "Submitted for refusal of consent. Supply in the city is a provincial matter. A question on the federal plants would be in order.",
+      recommend: "reject",
       note: {
         source: "rules-and-archive",
         summary: "One city, one night, one issue. The member wants the day’s business paused.",
@@ -165,6 +232,7 @@ function seedFiles() {
       deadline: "30 September 2026",
       body: "Protocol submits three dates in November for a return visit by the Speaker of the People’s Majlis of Maldives, and asks which date may be offered.",
       officerLine: "Submitted for a direction. No rule of admissibility. Three dates are attached.",
+      recommend: "amend",
       note: {
         source: "rules-and-archive",
         summary: "Protocol asks which of three November dates may be offered for the return visit.",
@@ -183,6 +251,75 @@ function seedFiles() {
         { name: "Saeed Ahmad Maitla", text: "Placed before the Speaker.", at: "25 Sep 2026" },
       ],
     }),
+    speakerFile({
+      id: "NA-2024-LEG-091",
+      kind: "letter",
+      subject: "Notification of the Special Parliamentary Committee under Article 175A",
+      memberName: "Ministry of Law and Justice",
+      minister: "As addressed on the letter",
+      received: "21 October 2024",
+      deadline: "25 October 2024",
+      body: "The Constitution (Twenty-sixth Amendment) Act, 2024 received assent on 21 October 2024. This letter asks for the Speaker's order notifying the Special Parliamentary Committee under Article 175A.",
+      officerLine: "Submitted for the Speaker's order on the notification. The Act is already law.",
+      recommend: "allow",
+      note: {
+        source: "rules-and-archive",
+        summary: "Post-assent notification of the Special Parliamentary Committee. Not a request to introduce the Bill again.",
+        wordCount: 40,
+        failedCount: 0,
+        emptyRulings: true,
+        clauses: [
+          { id: "letter", text: "A letter is put up for a direction.", pass: true, verdict: "The Speaker signs the notification.", quoted: null },
+        ],
+        rulings: [],
+        officerLine: "Submitted for the Speaker's order on the notification. The Act is already law.",
+      },
+      minutes: [
+        { name: "Saima Malik", text: "Act assented 21 October 2024. Put up for notification.", at: "22 Oct 2024" },
+        { name: "Tariq Mehmood", text: "Seen. Complete.", at: "22 Oct 2024" },
+        { name: "Farah Jameel", text: "Agreed.", at: "23 Oct 2024" },
+        { name: "Saeed Ahmad Maitla", text: "Placed before the Speaker.", at: "24 Oct 2024" },
+      ],
+    }),
+    {
+      id: "NA-24-DEF-012",
+      kind: "letter",
+      subject: "Urgent medical treatment grant for secretariat staff",
+      memberName: "Administration Wing",
+      memberSample: "Sample paper",
+      minister: "As addressed on the letter",
+      starred: false,
+      received: "23 October 2024",
+      deadline: "28 October 2024",
+      daysLeft: 4,
+      daysTotal: 5,
+      language: "English",
+      sample: true,
+      body: "Administration Wing asks for remote clearance of a medical grant while the Speaker is away from Parliament House.",
+      opinionPhrase: "",
+      desk: "js",
+      note: {
+        source: "rules-and-archive",
+        summary: "A grant letter for remote clearance. It walks the same desks as any other file.",
+        wordCount: 22,
+        failedCount: 0,
+        emptyRulings: true,
+        clauses: [
+          { id: "letter", text: "A letter is put up for a direction.", pass: true, verdict: "Clearance is the Speaker's order.", quoted: null },
+        ],
+        rulings: [],
+        officerLine: "Sent up for remote clearance.",
+      },
+      officerLine: "Sent up for remote clearance.",
+      decision: null,
+      amendedText: "",
+      decidedAt: null,
+      dispatched: false,
+      followUp: null,
+      minutes: [
+        { name: "Saima Malik", text: "Put up for clearance.", at: "23 Oct 2024" },
+      ],
+    },
   ];
 }
 
@@ -281,7 +418,7 @@ function healthNote(file) {
   const failed = clauses.filter((clause) => !clause.pass);
   return {
     source: "rules-and-archive",
-    summary: (file.body || "").replace(/\s+/g, " ").trim().slice(0, 420) || "The attached PDF has no readable text. A scan has to be read before a note can be written.",
+    summary: file.plainAsk || (file.body || "").replace(/\s+/g, " ").trim().slice(0, 420) || "The attached PDF has no readable text. A scan has to be read before a note can be written.",
     wordCount: words,
     clauses,
     failedCount: failed.length,
@@ -376,7 +513,9 @@ export function demoRequest(path, options = {}) {
   if (method === "POST" && url.pathname === "/api/reset") {
     session = null;
     files = seedFiles();
+    directions = seedDirections();
     saveFiles();
+    saveDirections();
     return { ok: true };
   }
 
@@ -384,6 +523,97 @@ export function demoRequest(path, options = {}) {
 
   if (method === "GET" && url.pathname === "/api/files") {
     return { files: files.filter((file) => visible(file, user)).map(publicFile) };
+  }
+
+  if (method === "POST" && url.pathname === "/api/files") {
+    if (user.role !== "officer") fail("Only the section officer can register a file.", 403);
+    const kind = ["question", "adjournment", "privilege", "letter"].includes(body.kind) ? body.kind : "question";
+    const text = String(body.body || "").trim();
+    if (!text) fail("Paste the text of the notice.");
+    const received = new Date();
+    const prefix = { question: "Q", adjournment: "AM", privilege: "PRV", letter: "LTR" }[kind];
+    const serial = String(900 + files.length + Math.floor(Math.random() * 90)).padStart(4, "0");
+    const days = kind === "question" ? 5 : kind === "letter" ? 7 : 1;
+    const due = new Date(received);
+    due.setDate(due.getDate() + days);
+    const format = (date) => date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    const file = {
+      id: `${prefix}-${received.getFullYear()}-${serial}`,
+      kind,
+      subject: String(body.subject || "").trim() || text.split(/\s+/).slice(0, 10).join(" "),
+      memberName: String(body.memberName || "").trim() || "Sample member",
+      memberSample: "Registered in this demo",
+      minister: String(body.minister || "").trim() || "the Minister concerned",
+      starred: kind === "question",
+      received: format(received),
+      deadline: format(due),
+      daysLeft: days,
+      daysTotal: days,
+      language: "English",
+      sample: true,
+      body: text,
+      opinionPhrase: (text.match(/in the Minister'?s view[^,;?]*/i) || [""])[0],
+      desk: "section_officer",
+      note: null,
+      officerLine: "",
+      decision: null,
+      amendedText: "",
+      decidedAt: null,
+      dispatched: false,
+      followUp: null,
+      minutes: [],
+    };
+    files.unshift(file);
+    saveFiles();
+    return { file: publicFile(file) };
+  }
+
+  if (method === "GET" && url.pathname === "/api/directions") {
+    return { directions };
+  }
+
+  if (method === "POST" && url.pathname === "/api/directions") {
+    const text = String(body.text || "").trim();
+    if (!text) fail("A direction needs its text.");
+    const direction = {
+      id: `D-2026-${String(420 + directions.length).padStart(4, "0")}`,
+      text,
+      owner: String(body.owner || "").trim() || "Speaker's Office",
+      due: dayOffset(Number(body.days) || 7),
+      status: "open",
+      source: String(body.source || "Speaker's Office"),
+      createdAt: new Date().toISOString(),
+      reminders: 0,
+    };
+    directions.unshift(direction);
+    saveDirections();
+    return { direction };
+  }
+
+  if (parts[0] === "api" && parts[1] === "directions" && parts[2]) {
+    const direction = directions.find((item) => item.id === parts[2]);
+    if (!direction) fail("Direction not found.", 404);
+    if (method === "POST" && parts[3] === "remind") {
+      direction.reminders = (direction.reminders || 0) + 1;
+      direction.lastReminded = new Date().toISOString();
+      saveDirections();
+      return { direction };
+    }
+    if (method === "POST" && parts[3] === "done") {
+      if (user.role === "speaker") fail("The office closes a direction with evidence.", 403);
+      direction.status = "done";
+      direction.evidence = String(body.evidence || "").trim() || "Action reported complete.";
+      direction.closedAt = new Date().toISOString();
+      saveDirections();
+      return { direction };
+    }
+    if (method === "POST" && parts[3] === "reopen") {
+      if (user.role !== "speaker") fail("Only the Speaker reopens a direction.", 403);
+      direction.status = "open";
+      direction.due = dayOffset(3);
+      saveDirections();
+      return { direction };
+    }
   }
 
   if (parts[0] === "api" && parts[1] === "files" && parts[2]) {
@@ -398,6 +628,10 @@ export function demoRequest(path, options = {}) {
       if (file.desk !== "section_officer") fail("File is not on this desk.", 409);
       file.note = noteFor(file);
       if (!file.officerLine) file.officerLine = file.note.officerLine;
+      if (!file.recommend) {
+        const failed = file.note.clauses.some((clause) => !clause.pass);
+        file.recommend = file.kind === "letter" ? "allow" : !failed ? "allow" : file.kind === "question" ? "amend" : "reject";
+      }
       saveFiles();
       return { file: publicFile(file) };
     }
@@ -405,6 +639,7 @@ export function demoRequest(path, options = {}) {
     if (method === "POST" && action === "line") {
       if (user.role !== "officer") fail("Only the section officer edits the line.", 403);
       file.officerLine = String(body.officerLine || "");
+      if (["allow", "reject", "amend"].includes(body.recommend)) file.recommend = body.recommend;
       saveFiles();
       return { file: publicFile(file) };
     }
@@ -443,7 +678,22 @@ export function demoRequest(path, options = {}) {
       if (body.decision === "amend" && !String(body.wording || "").trim()) fail("Write the amended wording.");
       file.decision = body.decision;
       file.amendedText = String(body.wording || "");
+      file.speakerRemark = String(body.remark || "").trim();
       file.decidedAt = new Date().toISOString();
+      const instruction = String(body.instruction || "").trim();
+      if (instruction) {
+        directions.unshift({
+          id: `D-2026-${String(420 + directions.length).padStart(4, "0")}`,
+          text: instruction,
+          owner: file.kind === "letter" ? file.memberName : "Questions Branch",
+          due: dayOffset(7),
+          status: "open",
+          source: `File ${file.id}`,
+          createdAt: new Date().toISOString(),
+          reminders: 0,
+        });
+        saveDirections();
+      }
       file.desk = "section_officer_return";
       const office = file.kind === "letter" ? "Section Officer" : "Questions Branch";
       file.followUp = body.decision === "reject"
@@ -466,6 +716,18 @@ export function demoRequest(path, options = {}) {
   }
 
   fail("Request failed.", 404);
+}
+
+export function deskCounts() {
+  const counts = {};
+  for (const file of files) counts[file.desk] = (counts[file.desk] || 0) + 1;
+  return {
+    officer: (counts.section_officer || 0) + (counts.section_officer_return || 0),
+    js: counts.js || 0,
+    special: counts.special || 0,
+    secgen: counts.secgen || 0,
+    speaker: counts.speaker || 0,
+  };
 }
 
 export function demoUpload(form) {

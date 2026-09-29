@@ -95,7 +95,7 @@ export const slots = {
   t36: "Diplomatic Protocol Tier-1",
   t37: "DIPL-PK-TR-8819",
   t38: "سفارتی بریفنگ",
-  t39: "\r\n                H.E. Dr. Mehmet Paçacı, Ambassador Extraordinary and Plenipotentiary of the Republic of Turkiye\r\n              ",
+  t39: "\r\n                H.E. Irfan Neziroglu, Ambassador-designate of the Republic of Türkiye\r\n              ",
   t40: "calendar_clock",
   t41: "25 Oct 2024, 11:30 AM",
   t42: "meeting_room",

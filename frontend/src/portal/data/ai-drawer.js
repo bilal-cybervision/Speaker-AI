@@ -15,7 +15,7 @@ export const slots = {
   t4: "remove",
   t5: "close",
   t6: "Active Dossier Context",
-  t7: "Monitoring Floor Motions & Adjournment Notices for the 42nd Parliamentary Assembly sitting.",
+  t7: "Monitoring Floor Motions and Adjournment Notices of the 16th National Assembly.",
   t8: "Prescribed Actions",
   t9: "Draft official Speaker's ruling",
   t10: "arrow_forward",

@@ -110,7 +110,7 @@ export const template = `<main class="w-full pt-2 bg-surface px-space-lg py-spac
 <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
 <div class="flex items-start gap-space-md">
 <div class="relative shrink-0">
-<img class="w-16 h-16 rounded-xl object-cover shadow-sm bg-surface-container" data-alt="Official portrait photograph of His Excellency Dr. Mehmet Pacaci, Ambassador Extraordinary and Plenipotentiary of Turkey to Pakistan in formal attire with Turkish diplomatic seal backdrop." src="/assets/proto-03.jpg"/>
+<div class="w-16 h-16 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0" aria-label="Republic of Türkiye"><span class="font-label-lg text-label-lg">TR</span></div>
 <span class="absolute -bottom-1 -right-1 px-1 py-0.5 bg-primary-container text-on-primary font-code-md text-[9px] rounded font-bold">{{t35}}</span>
 </div>
 <div class="flex flex-col min-w-0">
@@ -182,7 +182,7 @@ export const template = `<main class="w-full pt-2 bg-surface px-space-lg py-spac
 <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
 <div class="flex items-start gap-space-md">
 <div class="relative shrink-0">
-<img class="w-16 h-16 rounded-xl object-cover shadow-sm bg-surface-container" data-alt="Documentary style shot of the Parliamentary Reporters Association media briefing room in Islamabad, Pakistan with journalists, microphones, and official press badges." src="/assets/proto-04.jpg"/>
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-primary-container" aria-hidden="true"><span class="material-symbols-outlined text-[28px]">groups</span></div>
 <span class="absolute -bottom-1 -right-1 px-1 py-0.5 bg-secondary text-surface-container-lowest font-code-md text-[9px] rounded font-bold">{{t67}}</span>
 </div>
 <div class="flex flex-col min-w-0">
@@ -245,7 +245,7 @@ export const template = `<main class="w-full pt-2 bg-surface px-space-lg py-spac
 <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
 <div class="flex items-start gap-space-md">
 <div class="relative shrink-0">
-<img class="w-16 h-16 rounded-xl object-cover shadow-sm bg-surface-container" data-alt="Official architectural seal and insignia of the Provincial Assembly of Balochistan, set within an elegant parliamentary certificate framing with green and gold tones." src="/assets/proto-05.jpg"/>
+<div class="w-16 h-16 rounded-xl bg-surface-container flex items-center justify-center shrink-0 text-primary-container" aria-hidden="true"><span class="material-symbols-outlined text-[28px]">account_balance</span></div>
 <span class="absolute -bottom-1 -right-1 px-1 py-0.5 bg-primary-container text-on-primary font-code-md text-[9px] rounded font-bold">{{t93}}</span>
 </div>
 <div class="flex flex-col min-w-0">

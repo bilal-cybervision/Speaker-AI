@@ -135,7 +135,7 @@ export const slots = {
   t48: "Speaker of Grand National Assembly of Türkiye",
   t49: "Ankara • GNAT/2024/09",
   t50: "AI Draft Ready",
-  t51: "H.E. Dr. Mehmet Paçacı",
+  t51: "H.E. Irfan Neziroglu",
   t52: "TIER-2",
   t53: "Ambassador of Republic of Türkiye to Pakistan",
   t54: "Diplomatic Enclave, Islamabad",

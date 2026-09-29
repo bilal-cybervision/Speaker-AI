@@ -271,7 +271,7 @@ export const slots = {
   t180: "\r\n              \"Call from Attorney General regarding legal opinion on Article 175A amendment; requested urgent 10-minute briefing slot in Chamber before the commencement of orders of the day...\"\r\n            ",
   t181: "Link to Existing Docket (Module 1 / 2)",
   a17: "NA-24-LEG-091",
-  t182: "File #NA-24-LEG-091 (Constitutional 26th Amendment Bill)",
+  t182: "File #NA-24-LEG-091 (Constitution (Twenty-sixth Amendment) Act, 2024)",
   a18: "NA-24-COM-19",
   t183: "File #NA-24-COM-19 (Standing Committee Coordination)",
   a19: "DIR-2024-104",

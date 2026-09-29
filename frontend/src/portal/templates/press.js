@@ -209,7 +209,7 @@ export const template = `<main class="w-full pt-2 bg-surface px-space-lg py-spac
 </div>
 <!-- Video Broadcast Thumbnail Clip -->
 <div class="w-full md:w-44 shrink-0 rounded-lg overflow-hidden bg-surface-container-high relative group">
-<img class="w-full h-28 object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Television broadcast screen showing a Pakistani parliamentary news bulletin desk with red alert graphics and ticker discussing assembly private members bills." src="/assets/proto-06.jpg"/>
+<div class="w-full h-28 bg-primary-container flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[36px]">live_tv</span></div>
 <div class="absolute inset-0 bg-on-surface/40 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
 <div class="w-8 h-8 rounded-full bg-surface-container-lowest/90 flex items-center justify-center text-primary-container shadow">
 <span class="material-symbols-outlined text-[20px]">{{t70}}</span>
@@ -265,7 +265,7 @@ export const template = `<main class="w-full pt-2 bg-surface px-space-lg py-spac
 </div>
 <!-- Photo Clip -->
 <div class="w-full md:w-44 shrink-0 rounded-lg overflow-hidden bg-surface-container-high relative">
-<img class="w-full h-28 object-cover" data-alt="Speaker Sardar Ayaz Sadiq seated in formal diplomatic chamber with the Turkish Ambassador in Islamabad, national flags displayed behind with state protocol decor." src="/assets/proto-07.jpg"/>
+<img alt="Sardar Ayaz Sadiq, Speaker of the National Assembly, in the chamber" class="w-full h-28 object-cover object-[center_22%]" src="/assets/speaker-ayaz-sadiq.png"/>
 <div class="absolute bottom-1 right-1 bg-surface-container-lowest/90 px-1 py-0.5 rounded font-label-sm text-[9px] text-primary-container font-bold">{{t89}}</div>
 </div>
 </div>

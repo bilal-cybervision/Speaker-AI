@@ -125,9 +125,7 @@ export const headerMarkup = `<header id="shell-header" class="h-16 bg-surface-co
       </button>
       <div class="flex items-center gap-1.5 px-2 py-1 bg-surface-container-low rounded-lg">
         <span class="w-2 h-2 rounded-full bg-secondary"></span>
-        <span class="font-label-sm text-label-sm text-on-surface font-semibold">42nd Session</span>
-        <span class="font-label-sm text-label-sm text-outline-variant">|</span>
-        <span class="font-label-sm text-label-sm text-on-surface-variant">Day 14</span>
+        <span class="font-label-sm text-label-sm text-on-surface font-semibold">16th National Assembly</span>
       </div>
       <div class="relative flex items-center justify-center p-1 rounded-lg text-on-surface-variant hover:text-on-surface cursor-pointer">
         <span class="material-symbols-outlined text-[20px]">notifications</span>
@@ -138,7 +136,7 @@ export const headerMarkup = `<header id="shell-header" class="h-16 bg-surface-co
           <span class="font-label-md text-label-md text-on-surface font-semibold">Hon. Sardar Ayaz Sadiq</span>
           <span class="font-label-sm text-label-sm text-outline">Speaker, National Assembly</span>
         </div>
-        <img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="/assets/proto-02.jpg"/>
+        <img alt="Sardar Ayaz Sadiq, Speaker of the National Assembly" class="w-8 h-8 rounded-full object-cover object-[center_22%] ring-1 ring-outline-variant" src="/assets/speaker-ayaz-sadiq.png"/>
       </div>
     </div>
   </header>`;

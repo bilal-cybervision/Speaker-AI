@@ -129,7 +129,7 @@ export const slots = {
   t62: " Current Floor Order\r\n              ",
   t63: "Orders of the Day — Presiding House Session",
   t64: "gavel",
-  t65: "National Assembly Chamber (42nd Session)",
+  t65: "National Assembly Chamber (16th Assembly)",
   t66: "\r\n              Agenda: Consideration of Private Member's Bills, Call Attention Notices, Federal Ombudsman Act amendment.\r\n            ",
   t67: "01:15 PM",
   t68: "Diplomatic Call",
