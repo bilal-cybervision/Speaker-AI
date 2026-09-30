@@ -24,6 +24,32 @@ import {
 } from "./ui.js";
 
 
+/* ---------- Prototype gate ---------- */
+
+export function gateView(error = "") {
+  return `<div class="login">
+    <section class="login-art">
+      <div class="brand"><img src="/crest.svg" alt=""><div><b>National Assembly of Pakistan</b><span>Office of the Speaker</span></div></div>
+      <div class="login-hero">
+        <h1>Every paper, one decision away.</h1>
+        <p>The Secretariat examines. The note is drafted from the Rules and the rulings of the Chair. The Speaker decides and signs.</p>
+      </div>
+      <div class="login-foot">Proof of concept · private preview</div>
+    </section>
+    <section class="login-panel">
+      <div class="login-box">
+        <h2>This preview is private</h2>
+        <p>Enter the prototype password to continue.</p>
+        <form id="gate-form" class="gate-form">
+          <div class="field"><label for="gate-password">Password</label><input class="text" id="gate-password" type="password" autocomplete="current-password" required></div>
+          <button class="btn primary" type="submit">Continue</button>
+        </form>
+        <div class="login-error">${esc(error)}</div>
+      </div>
+    </section>
+  </div>`;
+}
+
 /* ---------- Sign in ---------- */
 
 export function loginView(error = "") {

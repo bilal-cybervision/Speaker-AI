@@ -21,6 +21,9 @@ export function shown(value) {
     .trim();
 }
 
+/** Prototype gate. Checked in the browser. No database. Visible to anyone who reads the page source. */
+export const PROTOTYPE_PASSWORD = "NASpeaker2026";
+
 export const ROLES = {
   speaker: { name: "Sardar Ayaz Sadiq", title: "Speaker, National Assembly", initials: "AS", desk: "speaker", email: "speaker@na.gov.pk", password: "speaker123" },
   officer: { name: "Saima Malik", title: "Section Officer · Questions Branch", initials: "SM", desk: "section_officer", email: "so.questions@na.gov.pk", password: "questions123" },

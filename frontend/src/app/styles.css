@@ -345,6 +345,16 @@ kbd {
   min-height: 1em;
 }
 
+.gate-form {
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.gate-form .btn {
+  width: 100%;
+}
+
 /* ---------- Shell ---------- */
 
 .shell {

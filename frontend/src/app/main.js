@@ -2,8 +2,8 @@ import "./styles.css";
 import { demoRequest, deskCounts } from "../demo.js";
 import { retrieveRulings, searchRulings } from "../portal/rulings-search.js";
 import { icon } from "./icons.js";
-import { ROLES, DESK, NEXT_DESK, sortUrgent, verdictFor, esc, clip, shown } from "./ui.js";
-import { loginView, shellView, topbarView, deskView, directionsView, todayView, registerView, SAMPLE_NOTICE } from "./views.js";
+import { ROLES, DESK, NEXT_DESK, sortUrgent, verdictFor, esc, clip, shown, PROTOTYPE_PASSWORD } from "./ui.js";
+import { loginView, gateView, shellView, topbarView, deskView, directionsView, todayView, registerView, SAMPLE_NOTICE } from "./views.js";
 import { MODULES, APPROVAL_KIND, moduleAction, filesView, meetingsView, speechesView, callsView, remoteView, mediaView, cardsView, prompterView } from "./modules.js";
 import { db, speakerApprovals, decideApproval, resetModules } from "./store.js";
 import { askSpeakerAI, askSpeakerAILocal, citationText, briefing, detectUrdu, liveContext, checkEvidenceAI } from "./ai.js";
@@ -16,8 +16,12 @@ import { hasGemini } from "./env.js";
 const UNDO_MS = 5000;
 const root = document.getElementById("root");
 
+const GATE_KEY = "speaker-office-gate-v1";
+
 const state = {
   user: null,
+  gate: sessionStorage.getItem(GATE_KEY) === "ok",
+  gateError: "",
   view: "desk",
   files: [],
   directions: [],
@@ -198,6 +202,11 @@ function derive() {
 /* ---------- Render ---------- */
 
 function render() {
+  if (!state.gate) {
+    root.innerHTML = gateView(state.gateError);
+    document.getElementById("gate-password")?.focus();
+    return;
+  }
   if (!state.user) {
     root.innerHTML = loginView(state.loginError);
     return;
@@ -900,7 +909,26 @@ async function directionAction(kind, id) {
   render();
 }
 
+function unlockGate() {
+  const value = document.getElementById("gate-password")?.value || "";
+  if (value !== PROTOTYPE_PASSWORD) {
+    state.gateError = "That password is not right.";
+    render();
+    return;
+  }
+  sessionStorage.setItem(GATE_KEY, "ok");
+  state.gate = true;
+  state.gateError = "";
+  render();
+}
+
 /* ---------- Events ---------- */
+
+root.addEventListener("submit", (event) => {
+  if (event.target?.id !== "gate-form") return;
+  event.preventDefault();
+  unlockGate();
+});
 
 root.addEventListener("click", async (event) => {
   if (state.noticesOpen && !event.target.closest("#notice-pop") && !event.target.closest("[data-action='toggle-notices']")) {
