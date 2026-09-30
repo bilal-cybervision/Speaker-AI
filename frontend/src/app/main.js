@@ -399,9 +399,6 @@ async function speakText(text, urdu = false) {
     });
     if (token !== speakToken) return;
     if (!res.ok) {
-      let detail = "";
-      try { detail = (await res.json())?.error || ""; } catch { /* browser voice still speaks */ }
-      toast(esc(shown(detail ? `${detail} The browser voice will read it.` : "The browser voice will read it.")));
       speakBrowser(line, urdu, token);
       return;
     }
