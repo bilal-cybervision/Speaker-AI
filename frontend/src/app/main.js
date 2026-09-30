@@ -71,6 +71,10 @@ const state = {
   evidenceCheck: null,
   evidenceDraft: "",
   forceClose: false,
+  gcMode: "",
+  gcTier: "all",
+  gcQuery: "",
+  gcCreate: false,
 };
 
 const VIEWS = ["desk", "ai", "search", "notices", "intake", ...MODULES.map((item) => item.id)];
@@ -974,6 +978,10 @@ root.addEventListener("click", async (event) => {
       state.noticesOpen = false;
       state.intake = null;
       state.evidenceCheck = null;
+      state.gcMode = "";
+      state.gcTier = "all";
+      state.gcQuery = "";
+      state.gcCreate = false;
       liveSession?.close();
       liveSession = null;
       rulingCache.clear();
@@ -1280,6 +1288,17 @@ root.addEventListener("input", (event) => {
   }
   if (target.id === "voice-text") {
     state.voice.transcript = target.value;
+    return;
+  }
+  if (target.id === "gc-q") {
+    state.gcQuery = target.value;
+    const at = target.selectionStart;
+    render();
+    const box = document.getElementById("gc-q");
+    if (box) {
+      box.focus();
+      box.setSelectionRange(at, at);
+    }
     return;
   }
   if (target.id === "q" || target.id === "files-q") {

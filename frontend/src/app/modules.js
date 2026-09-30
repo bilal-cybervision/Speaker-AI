@@ -299,30 +299,157 @@ export function mediaView(state) {
 
 /* ---------- M9 Greeting cards ---------- */
 
+function gcDate(iso) {
+  return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+}
+
+function gcLong(iso) {
+  return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+}
+
+function gcLead(iso) {
+  const n = daysLeft(iso);
+  if (n <= 0) return "Due now";
+  return `In ${n} day${n === 1 ? "" : "s"}`;
+}
+
+function campaignName(card) {
+  if (card.chip) return card.chip;
+  if (/turk/i.test(card.occasion)) return "Türkiye";
+  if (/iqbal/i.test(card.occasion)) return "Iqbal Day";
+  if (/oman/i.test(card.occasion)) return "Oman";
+  if (/quaid|christmas/i.test(card.occasion)) return "Quaid-e-Azam";
+  return card.occasion;
+}
+
+function touchOn(card, id) {
+  return !!card.touches?.find((item) => item.id === id && item.on);
+}
+
 export function cardsView(state) {
   const items = db().cards;
   const item = pick(state, "cards", items);
-  const staff = isStaff(state);
-  const head = `<div class="row"><h2>Occasions<small>${items.length}</small></h2></div>`;
-  const list = items.map((c) => row(state, "cards", c, `<span class="kind cards">${esc(shortDate(c.date))}</span>${statusChip(c.status)}`, c.occasion, `<span>${c.recipients.reduce((s, r) => s + r.count, 0)} recipients</span><span>${esc(c.channel)}</span>`)).join("");
-  if (!item) return listDetail(state, { list, head, detail: "" });
-  const total = item.recipients.reduce((s, r) => s + r.count, 0);
-  const edit = staff && item.status === "draft";
-  const detail = `
-    <div class="file-head"><div class="line"><span class="kind cards">Greeting cards</span><span class="mono">${esc(item.id)}</span>${statusChip(item.status)}</div><h2>${esc(item.occasion)}</h2></div>
-    <div class="facts"><div><div class="k">Occasion</div><div class="v">${esc(new Date(item.date).toLocaleDateString("en-GB", { day: "numeric", month: "long" }))}</div></div><div><div class="k">Reminder</div><div class="v">${daysLeft(item.date) - 14 > 0 ? `In ${daysLeft(item.date) - 14} days` : "Due now"}<small>14 days before</small></div></div>
-      <div><div class="k">Recipients</div><div class="v">${total}</div></div><div><div class="k">Channel</div><div class="v">${esc(item.channel)}</div></div></div>
-    <div class="cols" style="grid-template-columns:1fr 1fr">
-      <section class="card"><div class="card-head"><h3>English</h3><div class="spacer"></div><span class="ai-tag">${icon("sparkle")}AI draft</span></div><div class="card-body">${edit ? `<textarea id="gc-en" rows="5">${esc(item.en)}</textarea>` : `<p class="card-text">${esc(item.en)}</p>`}</div></section>
-      <section class="card"><div class="card-head"><h3>اردو</h3></div><div class="card-body">${edit ? `<textarea id="gc-ur" rows="5" dir="rtl" class="urdu">${esc(item.ur)}</textarea>` : `<p class="card-text urdu" dir="rtl">${esc(item.ur)}</p>`}</div></section>
-    </div>
-    <section class="card"><div class="card-head">${icon("users")}<h3>Recipient lists</h3></div><table class="table"><tbody>${item.recipients.map((r) => `<tr><td>${esc(r.group)}</td><td style="text-align:right"><b>${r.count}</b></td></tr>`).join("")}</tbody></table></section>
-    ${item.log.length ? `<section class="card"><div class="card-head">${icon("list")}<h3>Dispatch log</h3><div class="spacer"></div><span class="chip green">${item.log.length} sent</span></div><table class="table"><tbody>${item.log.slice(0, 6).map((l) => `<tr><td>${esc(l.to)}</td><td>${esc(l.via)}</td><td class="sub">${esc(stamp(l.at))}</td></tr>`).join("")}${item.log.length > 6 ? `<tr><td colspan="3" class="sub">and ${item.log.length - 6} more</td></tr>` : ""}</tbody></table></section>` : ""}`;
-  let dock = "";
-  if (staff && item.status === "draft") dock = dockBar(`<span class="prompt">The whole batch goes up for one approval.</span><div class="spacer"></div><button class="btn primary" type="button" data-action="gc-submit">${icon("send")}Submit ${total} cards for approval</button>`);
-  else if (staff && item.status === "approved") dock = dockBar(`<span class="prompt">Approved by the Speaker.</span><div class="spacer"></div><button class="btn primary" type="button" data-action="gc-dispatch">${icon("send")}Dispatch ${total} cards</button>`);
-  else if (!staff && item.status === "submitted") dock = dockBar(`<span class="prompt">Waiting for your approval.</span><div class="spacer"></div><button class="btn primary" type="button" data-action="open-approval" data-id="${item.id}">${icon("inbox")}Decide on my desk</button>`);
-  return listDetail(state, { list, head, detail, dock });
+  if (!item) return `<div class="page"><div class="page-inner"><div class="empty">No occasion is on the calendar.</div></div></div>`;
+  const mode = state.gcMode || (isStaff(state) ? "staff" : "speaker");
+  const roster = item.roster || [];
+  const tier = state.gcTier || "all";
+  const query = (state.gcQuery || "").trim().toLowerCase();
+  const counts = { 1: 0, 2: 0, 3: 0 };
+  for (const person of roster) counts[person.tier] = (counts[person.tier] || 0) + 1;
+  const shown = roster.filter((person) => {
+    if (tier !== "all" && String(person.tier) !== tier) return false;
+    if (!query) return true;
+    return `${person.name} ${person.role} ${person.place} tier-${person.tier}`.toLowerCase().includes(query);
+  });
+  const focus = roster.find((person) => person.id === item.focusId) || shown.find((person) => person.selected) || shown[0] || roster[0];
+  const picked = roster.filter((person) => person.selected).length;
+  const summaryCount = item.selectAll ? item.targets : picked;
+  const ready = item.status === "submitted" || item.status === "approved" || item.status === "dispatched";
+  const showUrdu = touchOn(item, "urdu");
+  const showSeal = touchOn(item, "seal");
+  const showLocale = touchOn(item, "locale") && item.lang;
+  const showAntalya = touchOn(item, "antalya") && item.antalya;
+  const pill = (id, label) => `<button type="button" class="gc-pill${tier === id ? " on" : ""}" data-action="gc-tier" data-tier="${id}">${label}</button>`;
+  const campaigns = items.map((card) => {
+    const on = card.id === item.id;
+    return `<button type="button" class="gc-cal${on ? " on" : ""}${card.priority ? " hot" : ""}" data-action="gc-campaign" data-id="${esc(card.id)}">
+      ${card.priority ? `<span class="gc-cal-bar"></span>` : ""}
+      <span class="gc-cal-top"><span class="gc-lead${card.priority ? " hot" : ""}">${card.priority ? `<i></i>` : ""}${esc(card.priority ? `${gcLead(card.date)} — Priority` : gcLead(card.date))}</span><span class="mono">${esc(gcDate(card.date))}</span></span>
+      <b>${esc(card.occasion)}</b>
+      ${card.lang ? `<span class="gc-tongue">${esc(card.lang.name)}</span>` : ""}
+      <span class="gc-target">${esc(card.targetLine || "")}</span>
+      <span class="gc-stage"><span class="dot ${esc(card.stage || "")}"></span>${esc(card.stageLabel || card.status)}<span class="mono">${card.targets} Targets</span></span>
+    </button>`;
+  }).join("");
+  const people = shown.map((person) => `<div class="gc-person${focus?.id === person.id ? " on" : ""}${person.selected ? "" : " dim"}" data-action="gc-focus" data-rid="${esc(person.id)}" role="button" tabindex="0">
+      <button type="button" class="gc-box${person.selected ? " on" : ""}" data-action="gc-pick" data-rid="${esc(person.id)}" aria-label="Select ${esc(person.name)}">${person.selected ? icon("check") : ""}</button>
+      <span class="gc-person-body">
+        <span class="gc-person-top"><span class="gc-who"><b>${esc(person.name)}</b>${person.tongue ? `<span class="gc-tongue">${esc(person.tongue)}</span>` : ""}</span><span class="mono tier">TIER-${person.tier}</span></span>
+        <span class="gc-role">${esc(person.role)}</span>
+        <span class="gc-person-foot"><span class="mono">${esc(person.place)}</span><span class="gc-mark ${esc(person.tone || "")}"><i></i>${esc(person.mark)}</span></span>
+      </span>
+    </div>`).join("");
+  const touches = (item.touches || []).map((touch) => `<button type="button" class="gc-touch" data-action="gc-touch" data-tid="${esc(touch.id)}">
+      <span class="gc-box${touch.on ? " on" : ""}">${touch.on ? icon("check") : ""}</span>
+      <span><b>${esc(touch.label)}</b><span>${esc(touch.note)}</span></span>
+    </button>`).join("");
+  let primary = "";
+  if (mode === "staff" && item.status === "draft") primary = `<button class="gc-go" type="button" data-action="gc-submit">${icon("check")}Submit ${item.targets} cards for the Speaker</button>`;
+  else if (mode === "staff" && item.status === "approved") primary = `<button class="gc-go" type="button" data-action="gc-dispatch">${icon("send")}Dispatch ${item.targets} cards</button>`;
+  else if (mode === "speaker" && !isStaff(state) && item.status === "submitted") primary = `<button class="gc-go" type="button" data-action="open-approval" data-id="${esc(item.id)}">${icon("check")}Approve all ${summaryCount} felicitations</button>`;
+  else if (item.status === "dispatched") primary = `<span class="chip green">Dispatched · ${item.log.length} logged</span>`;
+  else if (item.status === "approved") primary = `<span class="chip green">Signed. Protocol may send the bag.</span>`;
+  else if (item.status === "submitted") primary = `<span class="chip gold">With the Speaker. Nothing is sent until he signs.</span>`;
+  else primary = `<span class="chip">Drafting has not been put up.</span>`;
+  const create = state.gcCreate ? `<form class="gc-create" id="gc-new">
+      <div class="field"><label for="gc-occasion">Occasion</label><input class="text" id="gc-occasion" placeholder="e.g. National Day of Japan"></div>
+      <div class="field"><label for="gc-when">Days from today</label><input class="text" id="gc-when" inputmode="numeric" value="21"></div>
+      <div class="field"><label for="gc-targets">Targets</label><input class="text" id="gc-targets" inputmode="numeric" value="8"></div>
+      <div class="gc-create-actions"><button class="btn" type="button" data-action="gc-create-cancel">Cancel</button><button class="btn primary" type="button" data-action="gc-save">Open campaign</button></div>
+    </form>` : "";
+  return `<div class="page gc-page"><div class="page-inner">
+    <header class="gc-head">
+      <div>
+        <div class="gc-title"><h2>Greeting Cards & Official Felicitations</h2><span class="gc-urdu">تہنیتی پیغامات</span><span class="gc-class">Protocol Div • Class 1</span></div>
+        <p>Ceremonial greetings, national day messages, diplomatic felicitations, and condolence dispatches</p>
+      </div>
+      <div class="gc-head-actions">
+        <div class="gc-switch">
+          <button type="button" class="${mode === "speaker" ? "on" : ""}" data-action="gc-mode" data-mode="speaker">${icon("shield")}Speaker Direct Approval View</button>
+          <button type="button" class="${mode === "staff" ? "on" : ""}" data-action="gc-mode" data-mode="staff">${icon("pen")}Secretariat Staff Drafting</button>
+        </div>
+        <button class="btn gold" type="button" data-action="gc-create">${icon("plus")}Create New Occasion Campaign</button>
+      </div>
+    </header>
+    ${create}
+    <section class="gc-strip">
+      <div class="gc-strip-label">${icon("calendar")}<span>Active & forthcoming diplomatic calendar</span><span class="mono">Sample gazette schedule</span></div>
+      <div class="gc-cals">${campaigns}</div>
+    </section>
+    <section class="gc-console">
+      <div class="gc-roster">
+        <div class="gc-block-head">${icon("users")}<h3>Recipient Protocol Roster</h3><span class="mono gc-tag">${esc(campaignName(item))} Campaign</span></div>
+        <label class="gc-search">${icon("search")}<input id="gc-q" value="${esc(state.gcQuery || "")}" placeholder="Search by name, country, or dignity tier"></label>
+        <div class="gc-pills">
+          ${pill("all", `All (${roster.length})`)}
+          ${pill("1", `Tier-1: Foreign Speakers (${counts[1] || 0})`)}
+          ${pill("2", `Tier-2: Envoys (${counts[2] || 0})`)}
+          ${pill("3", `Tier-3: Ministers (${counts[3] || 0})`)}
+        </div>
+        <div class="gc-people">${people || `<div class="empty">No one in this tier.</div>`}</div>
+        <div class="gc-count"><span>Selected: ${shown.filter((person) => person.selected).length} of ${shown.length} shown</span><button type="button" data-action="gc-all">Select all ${item.targets} active</button></div>
+      </div>
+      <div class="gc-preview">
+        <div class="gc-banner">
+          <div class="gc-banner-id">${icon("mail")}<div><span>Diplomatic dispatch preview</span><b>${esc(item.longTitle || item.occasion)}</b></div></div>
+          <span class="mono">ID: ${esc(item.code || item.id)}</span>
+        </div>
+        <article class="gc-card">
+          <div class="gc-crest"><img src="/crest.svg" alt=""><div><b>Speaker's Secretariat • National Assembly of Pakistan</b><span>Parliament House, Islamabad</span></div></div>
+          <div class="gc-rule"></div>
+          <div class="gc-address"><span>Official address</span><b>${esc(focus?.salute || item.occasion)}</b><span>${esc(focus?.line || "")}</span></div>
+          <div class="gc-letter">${showLocale ? `<div class="gc-locale${item.lang.dir === "rtl" ? " rtl" : ""}" dir="${esc(item.lang.dir)}"><span class="gc-locale-k">${esc(item.lang.name)} · draft in the addressee's language</span><p>${esc(item.lang.text)}</p></div>` : ""}<p>${esc(item.en || "")}</p>${item.en2 ? `<p>${esc(item.en2)}</p>` : ""}${showAntalya ? `<p>${esc(item.antalya)}</p>` : ""}${showUrdu && item.ur ? `<div class="gc-nastaliq urdu" dir="rtl">${esc(item.ur)}</div>` : ""}</div>
+          <div class="gc-sign">
+            ${showSeal ? `<div class="gc-seal">${icon("shield")}<div><b>Official crest seal attached</b><span class="mono">Sample key · PK-NA-SPEAKER-2026</span><span>Validated for the diplomatic envelope</span></div></div>` : `<div class="gc-seal off"><div><b>Seal not applied</b><span>The Speaker's seal waits for his signature.</span></div></div>`}
+            <div class="gc-hand"><span class="signature">Sardar Ayaz Sadiq</span><span>Speaker, National Assembly of Pakistan</span><span class="mono">Dated: ${esc(gcLong(item.date))}</span></div>
+          </div>
+        </article>
+        <div class="gc-custom">
+          <div class="gc-block-head">${icon("sparkle")}<h3>Personal touch & protocol customizer</h3><span class="ai-tag">${icon("sparkle")}AI draft · confirm</span></div>
+          <div class="gc-touches">${touches}</div>
+        </div>
+      </div>
+    </section>
+    <footer class="gc-foot">
+      <div class="gc-sum">${icon("shield")}<div><b>Selection summary: ${summaryCount} dignitar${summaryCount === 1 ? "y" : "ies"} selected</b> ${ready ? `<span class="gc-ready">Ready</span>` : ""}<span>Security and protocol clearance is a sample note from the Protocol Wing. Nothing leaves the building until the Speaker signs.</span></div></div>
+      <div class="gc-actions">
+        <button class="btn" type="button" data-action="gc-print">${icon("file")}Print embossed parchment</button>
+        <button class="btn" type="button" data-action="gc-bag">${icon("send")}Send via diplomatic bag / MoFA</button>
+        ${primary}
+      </div>
+    </footer>
+    ${item.log?.length ? `<section class="card"><div class="card-head">${icon("list")}<h3>Dispatch log</h3><div class="spacer"></div><span class="chip green">${item.log.length} sent</span></div><table class="table"><tbody>${item.log.slice(0, 6).map((line) => `<tr><td>${esc(line.to)}</td><td>${esc(line.via)}</td><td class="sub">${esc(stamp(line.at))}</td></tr>`).join("")}${item.log.length > 6 ? `<tr><td colspan="3" class="sub">and ${item.log.length - 6} more</td></tr>` : ""}</tbody></table></section>` : ""}
+  </div></div>`;
 }
 
 /* ---------- Speaker's desk: approvals from the other modules ---------- */
@@ -353,7 +480,8 @@ export function approvalView(state, item) {
     body = `<section class="card"><div class="card-head">${icon("news")}<h3>Release text</h3><div class="spacer"></div><span class="ai-tag">${icon("sparkle")}First draft by AI · edited by the Media Wing</span></div><div class="card-body"><p class="notice-text" style="font-size:16px">${esc(ref.text)}</p><div class="live" style="margin-top:12px">${ref.sources.map((s) => `<span class="chip">${icon("book")}${esc(s)}</span>`).join("")}</div></div></section>`;
   } else if (item.kind === "cards") {
     body = `<div class="facts"><div><div class="k">Occasion</div><div class="v">${esc(new Date(ref.date).toLocaleDateString("en-GB", { day: "numeric", month: "long" }))}</div></div><div><div class="k">Recipients</div><div class="v">${ref.recipients.reduce((s, r) => s + r.count, 0)}</div></div><div><div class="k">Lists</div><div class="v">${ref.recipients.map((r) => esc(r.group)).join(", ")}</div></div><div><div class="k">Channel</div><div class="v">${esc(ref.channel)}</div></div></div>
-      <div class="cols" style="grid-template-columns:1fr 1fr"><section class="card"><div class="card-body"><p class="card-text">${esc(ref.en)}</p></div></section><section class="card"><div class="card-body"><p class="card-text urdu" dir="rtl">${esc(ref.ur)}</p></div></section></div>`;
+      <div class="cols" style="grid-template-columns:1fr 1fr"><section class="card"><div class="card-body"><p class="card-text">${esc(ref.en)}</p></div></section><section class="card"><div class="card-body"><p class="card-text urdu" dir="rtl">${esc(ref.ur)}</p></div></section></div>
+      ${ref.lang ? `<section class="card"><div class="card-head"><h3>${esc(ref.lang.name)}</h3><div class="spacer"></div><span class="ai-tag">${icon("sparkle")}Draft in the addressee's language</span></div><div class="card-body"><p class="gc-locale${ref.lang.dir === "rtl" ? " rtl" : ""}" dir="${esc(ref.lang.dir)}">${esc(ref.lang.text)}</p></div></section>` : ""}`;
   }
   return `<div class="file-scroll" id="file-scroll"><div class="file-inner">
     <div class="file-head"><div class="line"><span class="kind ${item.kind}">${esc(APPROVAL_KIND[item.kind])}</span><span class="mono">${esc(item.id)}</span>${item.kind === "remote" ? `<span class="chip red">Within ${Math.max(0, hoursLeft(ref.deadline))} h</span>` : daysChip(item)}</div><h2>${esc(item.subject)}</h2></div>
@@ -621,12 +749,129 @@ export async function moduleAction(action, el, ctx) {
       return true;
     }
 
+    case "gc-mode":
+      state.gcMode = el.dataset.mode;
+      render();
+      return true;
+    case "gc-tier":
+      state.gcTier = el.dataset.tier;
+      render();
+      return true;
+    case "gc-campaign":
+      state.sel.cards = el.dataset.id;
+      state.gcTier = "all";
+      state.gcQuery = "";
+      render();
+      return true;
+    case "gc-focus": {
+      const c = find("cards", state.sel.cards);
+      if (c.roster?.some((row) => row.id === el.dataset.rid)) c.focusId = el.dataset.rid;
+      done();
+      return true;
+    }
+    case "gc-pick": {
+      const c = find("cards", state.sel.cards);
+      const person = c.roster?.find((row) => row.id === el.dataset.rid);
+      if (!person) return true;
+      person.selected = !person.selected;
+      c.focusId = person.id;
+      c.selectAll = false;
+      done();
+      return true;
+    }
+    case "gc-touch": {
+      const c = find("cards", state.sel.cards);
+      const touch = c.touches?.find((row) => row.id === el.dataset.tid);
+      if (touch) touch.on = !touch.on;
+      done();
+      return true;
+    }
+    case "gc-all": {
+      const c = find("cards", state.sel.cards);
+      c.selectAll = true;
+      for (const person of c.roster || []) person.selected = true;
+      done(`All ${c.targets} active recipients marked for this campaign.`);
+      return true;
+    }
+    case "gc-create":
+      state.gcCreate = !state.gcCreate;
+      render();
+      document.getElementById("gc-occasion")?.focus();
+      return true;
+    case "gc-create-cancel":
+      state.gcCreate = false;
+      render();
+      return true;
+    case "gc-save": {
+      const occasion = val("gc-occasion");
+      if (!occasion) {
+        document.getElementById("gc-occasion")?.focus();
+        return true;
+      }
+      const days = Math.max(1, Number(val("gc-when")) || 21);
+      const targets = Math.max(1, Number(val("gc-targets")) || 8);
+      const when = new Date();
+      when.setDate(when.getDate() + days);
+      const id = `GC-2026-${20 + data.cards.length}`;
+      data.cards.push({
+        id,
+        code: id,
+        occasion,
+        longTitle: occasion,
+        date: when.toISOString(),
+        priority: days <= 7,
+        stage: "drafting",
+        stageLabel: "Drafting Stage",
+        targetLine: "Target: to be named by Protocol",
+        targets,
+        channel: "Print",
+        status: "draft",
+        focusId: "n1",
+        selectAll: false,
+        en: `The National Assembly of Pakistan sends its greetings on ${occasion}.`,
+        en2: "This is a sample draft. Protocol checks the names before it goes to the Speaker.",
+        antalya: "",
+        ur: "",
+        recipients: [{ group: "To be named", count: targets }],
+        roster: [{ id: "n1", name: "Protocol list, not yet named", tier: 1, role: "Recipient list to be confirmed", place: "Protocol Wing", salute: "Excellency", line: occasion, mark: "Draft", tone: "gold", selected: true }],
+        touches: [
+          { id: "urdu", label: "Urdu parallel calligraphy block", note: "Add the Urdu text before this goes up.", on: false },
+          { id: "seal", label: "Digital Signature Seal", note: "Applied only after the Speaker signs.", on: false },
+        ],
+        log: [],
+      });
+      state.sel.cards = id;
+      state.gcCreate = false;
+      state.gcTier = "all";
+      done(`${id} opened. It stays in drafting until you submit it.`);
+      return true;
+    }
+    case "gc-print":
+      toast("Embossed parchment queued for the Protocol press. This preview does not print a live card.");
+      return true;
+    case "gc-bag": {
+      const c = find("cards", state.sel.cards);
+      if (c.status !== "approved") {
+        toast("The diplomatic bag waits until the Speaker has signed.");
+        return true;
+      }
+      const at = new Date().toISOString();
+      c.log = (c.roster || []).filter((person) => person.selected).map((person) => ({ to: person.name, via: "Diplomatic bag / MoFA", at }));
+      if (!c.log.length) c.log = [{ to: `${c.targets} recipients`, via: "Diplomatic bag / MoFA", at }];
+      c.status = "dispatched";
+      done(`${c.log.length} cards logged for the diplomatic bag.`);
+      return true;
+    }
     case "gc-submit": {
       const c = find("cards", state.sel.cards);
-      c.en = val("gc-en") || c.en;
-      c.ur = val("gc-ur") || c.ur;
+      if (c.status !== "draft") {
+        toast("This campaign is not in drafting.");
+        return true;
+      }
       c.status = "submitted";
-      done("Batch submitted to the Speaker.");
+      c.stage = "active";
+      c.stageLabel = "Campaign Active";
+      done("Batch submitted to the Speaker. Nothing is sent until he signs.");
       return true;
     }
     case "gc-dispatch": {
