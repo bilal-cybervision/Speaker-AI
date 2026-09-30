@@ -121,9 +121,7 @@ export class GeminiLive {
       const blob = part.inlineData || part.inline_data;
       if (blob?.data) this.#playPcm(fromBase64(blob.data), blob.mimeType || blob.mime_type);
     }
-    if (sc.turnComplete || sc.turn_complete || sc.generationComplete || sc.generation_complete) {
-      this.hooks.onTurn?.();
-    }
+    if (sc.turnComplete || sc.turn_complete) this.hooks.onTurn?.();
     if (msg.error) this.hooks.onError?.(new Error(msg.error.message || "Live error"));
   }
 
@@ -168,22 +166,12 @@ export class GeminiLive {
     this.mic = null;
     try { this.capture?.close(); } catch { /* ignore */ }
     this.capture = null;
-    if (this.ws?.readyState === 1) {
-      try { this.ws.send(JSON.stringify({ realtimeInput: { audioStreamEnd: true } })); } catch { /* ignore */ }
-    }
   }
 
   stopPlayback() {
     this.nextPlay = 0;
     try { this.playCtx?.close(); } catch { /* ignore */ }
     this.playCtx = null;
-    if (this.ws?.readyState === 1) {
-      try {
-        this.ws.send(JSON.stringify({
-          clientContent: { turns: [], turnComplete: true },
-        }));
-      } catch { /* ignore */ }
-    }
   }
 
   #playPcm(_bytes, _mime = "") {

@@ -412,6 +412,7 @@ async function speakText(text, urdu = false) {
     });
     if (token !== speakToken) return;
     if (!res.ok) {
+      if (res.status === 401) toast("Daniel's voice was refused. This browser will speak the line once.");
       speakBrowser(line, urdu, token);
       return;
     }
@@ -492,6 +493,7 @@ async function connectLive() {
         if (chip) chip.textContent = "Daniel · tap MIC";
       },
       onInput: (text) => {
+        state.voice.answered = "";
         state.voice.transcript = `${state.voice.transcript || ""} ${text}`.trim();
         const box = document.getElementById("voice-text");
         if (box) {
@@ -515,13 +517,14 @@ async function connectLive() {
       onTurn: async () => {
         if (state.voice.fromSend) return;
         const q = (document.getElementById("voice-text")?.value || state.voice.transcript || "").trim();
-        if (!q) return;
+        if (!q || q === state.voice.answered) return;
+        state.voice.answered = q;
         const ask = ++voiceAsk;
-        stopSpeak();
+        stopListen();
         const answer = askSpeakerAILocal(q, state);
-        if (ask !== voiceAsk) return;
+        if (ask !== voiceAsk || !state.voice.open) return;
         state.voice.reply = answer;
-        render();
+        if (!String(answer.speak || "").trim()) render();
         speakText(answer.speak, detectUrdu(q));
       },
       onError: (err) => {
